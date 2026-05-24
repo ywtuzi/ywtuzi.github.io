@@ -1,14 +1,14 @@
 /* ========================================
-   凡人修仙传 — 青墨修仙 Theme v2
-   Inspired by the donghua's visual style:
-   - Low-saturation traditional Chinese palette
-   - Ink-wash (水墨) aesthetic with 留白
-   - Four-color spiritual vortex motif
-   - 乱星海 starry deep blues
+   凡人修仙传 — 青墨修仙 Theme v3
+   Inspired by modern blog design trends:
+   - Glassmorphism navigation
+   - Dynamic starry background
+   - Micro-interactions
+   - Premium typography
    ======================================== */
 
 :root {
-  /* ---- Core palette (inspired by donghua) ---- */
+  /* ---- Core palette ---- */
   --mortal-bg-dark: #0a1420;
   --mortal-bg-deeper: #060e16;
   --mortal-jade-green: #2d8a4e;
@@ -18,19 +18,24 @@
   --mortal-cloud-white: #e8e4d9;
   --mortal-paper: #f0ece0;
   --mortal-purple: #8b5cf6;
-  --mortal-ink: #1a1a1a;
-  --mortal-ink-light: #2a2a2a;
+  --mortal-ink: #c8c4b9;
+  --mortal-red: #c43a31;
 
-  /* ---- Four-color spiritual vortex (四色灵涡) ---- */
+  /* ---- Four-color vortex ---- */
   --vortex-red: #c43a31;
   --vortex-cyan: #38bdf8;
   --vortex-yellow: #f5d742;
   --vortex-blue: #3b82f6;
 
-  /* ---- 乱星海 deep sea colors ---- */
+  /* ---- Starry deep sea ---- */
   --starry-deep: #0c1a2e;
   --starry-mid: #132642;
   --starry-light: #1a3355;
+
+  /* ---- Glassmorphism ---- */
+  --glass-bg: rgba(10, 20, 32, 0.6);
+  --glass-border: rgba(201, 168, 76, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
 
   /* ---- Semantic aliases ---- */
   --vp-c-bg: var(--mortal-cloud-white);
@@ -42,214 +47,259 @@
   --vp-c-text-2: #5a6a7a;
   --vp-c-brand: var(--mortal-jade-green);
   --vp-c-brand-light: var(--mortal-jade-light);
-  --vp-c-brand-lighter: #4dc870;
   --vp-c-brand-dark: #22703e;
-  --vp-c-brand-darker: #1a5a30;
-  --vp-c-tip-bg: var(--mortal-jade-green);
-  --vp-c-warning-bg: var(--mortal-gold);
-  --vp-c-danger-bg: #c0392b;
-  --vp-code-bg: #1e2a36;
-  --vp-code-color: var(--mortal-cloud-white);
-  --vp-code-block-bg: #0a121c;
-  --vp-blockquote-bg: rgba(45, 138, 78, 0.08);
-  --vp-c-divider: rgba(201, 168, 76, 0.25);
-  --vp-c-gutter: rgba(201, 168, 76, 0.1);
+  --vp-c-divider: rgba(201, 168, 76, 0.2);
+  --vp-c-gutter: rgba(201, 168, 76, 0.08);
 
-  /* ---- Typography ---- */
-  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
+  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'Noto Sans SC', system-ui, sans-serif;
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 }
 
 /* ==========================================
-   Dark theme — 乱星海 deep sea aesthetic
+   Dark theme base
    ========================================== */
 .dark {
   --vp-c-bg: var(--mortal-bg-dark);
   --vp-c-bg-alt: #0c1a2e;
-  --vp-c-bg-elv: #0f1f35;
-  --vp-c-bg-soft: #0a1420;
+  --vp-c-bg-elv: rgba(15, 31, 53, 0.85);
+  --vp-c-bg-soft: rgba(10, 20, 32, 0.9);
   --vp-c-text: #d0ccc0;
   --vp-c-text-1: var(--mortal-cloud-white);
   --vp-c-text-2: #9a968a;
-  --vp-c-divider: rgba(201, 168, 76, 0.15);
+  --vp-c-divider: rgba(201, 168, 76, 0.12);
   --vp-c-brand: var(--mortal-jade-green);
   --vp-c-brand-light: var(--mortal-jade-light);
-  --vp-c-brand-lighter: #4dc870;
-  --vp-c-brand-dark: #22703e;
-  --vp-c-brand-darker: #1a5a30;
-  --vp-code-bg: #1a2533;
+  --vp-code-bg: rgba(26, 37, 51, 0.8);
   --vp-code-block-bg: #060e16;
-  --vp-blockquote-bg: rgba(45, 138, 78, 0.12);
+  --vp-blockquote-bg: rgba(45, 138, 78, 0.1);
 }
 
 /* ==========================================
-   Ink-wash background texture (subtle)
+   Dynamic starry background
    ========================================== */
 .dark::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(45, 138, 78, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.02) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(56, 189, 248, 0.02) 0%, transparent 50%);
+    /* Star field */
+    radial-gradient(1px 1px at 10% 5%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 25% 15%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 50% 8%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 75% 12%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1.5px 1.5px at 90% 20%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 35% 25%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 60% 35%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 20% 60%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 85% 65%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.15), transparent),
+    /* Aurora glow */
+    radial-gradient(ellipse at 20% 80%, rgba(45, 138, 78, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
+  animation: starTwinkle 8s ease-in-out infinite alternate;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
 /* ==========================================
-   Selection — 灵玉青 glow
+   Selection
    ========================================== */
 ::selection {
-  background: rgba(45, 138, 78, 0.3);
+  background: rgba(45, 138, 78, 0.35);
   color: var(--mortal-cloud-white);
-  text-shadow: 0 0 4px rgba(45, 138, 78, 0.3);
-}
-
-.dark ::selection {
-  background: rgba(45, 138, 78, 0.45);
 }
 
 /* ==========================================
    Scrollbar — 青竹风格
    ========================================== */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--mortal-jade-green), rgba(45, 138, 78, 0.3));
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--mortal-jade-green), rgba(45, 138, 78, 0.2));
+  border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--mortal-jade-light);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--mortal-jade-light); }
 
-/* Firefox scrollbar */
 html {
   scrollbar-color: var(--mortal-jade-green) transparent;
   scrollbar-width: thin;
 }
 
 /* ==========================================
-   Seal stamp effect on site title
-   Enhanced: 金色边框 + 朱砂红角印
+   GLASSMORPHISM NAVIGATION BAR
    ========================================== */
+.VPNav {
+  position: sticky !important;
+  top: 0;
+  z-index: 100;
+}
+
+.VPNavBar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: 0 1px 20px var(--glass-shadow);
+  transition: all 0.3s ease;
+}
+
+/* Navigation content wrapper */
+.VPNavBar .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Logo / site title */
+.VPNavBarTitle {
+  font-family: var(--vp-font-family-base);
+}
+
 .VPNavBarTitle .title {
   position: relative;
   display: inline-block;
-  color: var(--mortal-jade-green);
+  color: var(--mortal-gold) !important;
   font-weight: 700;
-  text-shadow:
-    0 0 8px rgba(45, 138, 78, 0.25),
-    0 0 16px rgba(45, 138, 78, 0.1);
+  font-size: 1.1em;
   letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.2);
   padding: 0 4px;
+  transition: text-shadow 0.3s ease;
 }
 
+.VPNavBarTitle .title:hover {
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+}
+
+/* Seal stamp border */
 .VPNavBarTitle .title::after {
   content: '';
   position: absolute;
-  inset: -4px -10px;
-  border: 2px solid rgba(201, 168, 76, 0.4);
+  inset: -3px -8px;
+  border: 1.5px solid rgba(201, 168, 76, 0.3);
   border-radius: 3px;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-/* Small red seal stamp corner decoration */
-.VPNavBarTitle .title .seal-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: #c43a31;
-  border-radius: 50%;
-  margin-left: 2px;
   opacity: 0.6;
-  vertical-align: super;
-  font-size: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.dark .VPNavBarTitle .title {
-  text-shadow:
-    0 0 8px rgba(45, 138, 78, 0.35),
-    0 0 20px rgba(45, 138, 78, 0.15);
+.VPNavBarTitle .title:hover::after {
+  opacity: 1;
+  border-color: rgba(201, 168, 76, 0.5);
 }
 
-/* ==========================================
-   Navigation bar — 水墨渐变 + 飞剑
-   ========================================== */
-.VPNavBar {
-  background: linear-gradient(180deg,
-    var(--mortal-bg-dark) 0%,
-    rgba(10, 20, 32, 0.97) 50%,
-    rgba(10, 20, 32, 0.92) 100%
-  ) !important;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-  backdrop-filter: blur(12px);
+/* Navigation links — elegant underline effect */
+.VPNavBarMenuLink {
+  position: relative;
+  color: var(--mortal-cloud-white) !important;
+  opacity: 0.75;
+  padding: 8px 0 !important;
+  margin: 0 12px;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
 }
 
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.VPNavBarMenuLink:hover {
+  opacity: 1 !important;
+  color: var(--mortal-gold) !important;
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.15);
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 60%;
+}
+
+.VPNavBarMenuLink.active {
+  opacity: 1 !important;
+  color: var(--mortal-gold) !important;
+}
+
+.VPNavBarMenuLink.active::after {
+  width: 80%;
+}
+
+/* Flying sword decoration — subtle animation */
 .VPNavBar::before {
   content: '🗡️';
   position: absolute;
   left: 50%;
-  bottom: -10px;
+  bottom: -8px;
   transform: translateX(-50%);
-  font-size: 16px;
-  animation: swordGlide 3s ease-in-out infinite;
+  font-size: 14px;
+  animation: swordFloat 4s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.35;
   z-index: 10;
-  filter: drop-shadow(0 0 4px rgba(45, 138, 78, 0.3));
+  filter: drop-shadow(0 0 4px rgba(45, 138, 78, 0.2));
 }
 
-@keyframes swordGlide {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0) rotate(-8deg);
-    opacity: 0.3;
-  }
-  25% {
-    transform: translateX(-50%) translateY(-5px) rotate(-3deg);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateX(-50%) translateY(-2px) rotate(5deg);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translateX(-50%) translateY(-6px) rotate(0deg);
-    opacity: 0.6;
-  }
+@keyframes swordFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-6deg); opacity: 0.25; }
+  25% { transform: translateX(-50%) translateY(-4px) rotate(-2deg); opacity: 0.45; }
+  50% { transform: translateX(-50%) translateY(-1px) rotate(4deg); opacity: 0.35; }
+  75% { transform: translateX(-50%) translateY(-5px) rotate(0deg); opacity: 0.4; }
 }
 
-/* Nav link hover — 灵玉 glow */
-.VPNavBarMenuLink:hover {
-  color: var(--mortal-gold) !important;
-  text-shadow: 0 0 8px rgba(201, 168, 76, 0.2);
+/* Social link icon */
+.VPNavBarSocialLinks .icon {
+  color: var(--mortal-cloud-white) !important;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.VPNavBarSocialLinks .icon:hover {
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /* ==========================================
-   Home hero — 水墨山水意境
-   Inspired by the donghua's ink-wash posters
+   HERO SECTION — Cinematic experience
    ========================================== */
 .VPHomeHero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg,
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg,
     var(--mortal-bg-deeper) 0%,
-    var(--mortal-bg-dark) 30%,
-    var(--starry-deep) 60%,
-    var(--starry-mid) 100%
+    var(--mortal-bg-dark) 25%,
+    var(--starry-deep) 50%,
+    var(--starry-mid) 75%,
+    var(--mortal-bg-dark) 100%
   );
 }
 
-/* Starry sky overlay — 乱星海 inspiration */
+/* Animated gradient overlay */
 .VPHomeHero .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  padding: 80px 0;
 }
 
 .VPHomeHero::before {
@@ -257,159 +307,170 @@ html {
   position: absolute;
   inset: 0;
   background:
-    /* Distant mountain silhouette */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232d8a4e' opacity='0.06' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,149.3C960,139,1056,149,1152,154.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E") no-repeat bottom / contain,
-    /* Stars */
-    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4), transparent),
-    radial-gradient(1px 1px at 40% 25%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.5px 1.5px at 60% 35%, rgba(255,255,255,0.4), transparent),
-    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1px 1px at 15% 45%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1.5px 1.5px at 70% 42%, rgba(255,255,255,0.25), transparent),
-    radial-gradient(1px 1px at 90% 48%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.3), transparent),
-    /* Ink wash edge */
-    linear-gradient(180deg, transparent 70%, var(--mortal-bg-dark) 100%);
+    /* Mountain silhouette */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232d8a4e' opacity='0.05' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,149.3C960,139,1056,149,1152,154.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E") no-repeat bottom / contain,
+    /* Animated gradient sweep */
+    linear-gradient(135deg, transparent 0%, rgba(45, 138, 78, 0.04) 25%, transparent 50%, rgba(201, 168, 76, 0.03) 75%, transparent 100%);
+  background-size: contain, 200% 200%;
   pointer-events: none;
+  animation: gradientSweep 15s ease-in-out infinite;
 }
 
-/* Floating mountain island */
-.VPHomeHero::after {
-  content: '⛰️';
-  position: absolute;
-  right: 8%;
-  bottom: 40px;
-  font-size: 56px;
-  opacity: 0.1;
-  pointer-events: none;
-  animation: mountainDrift 8s ease-in-out infinite;
-  filter: blur(2px);
+@keyframes gradientSweep {
+  0%, 100% { background-position: 0% 100%, 0% 50%; }
+  50% { background-position: 0% 100%, 100% 50%; }
 }
 
-@keyframes mountainDrift {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
-  50% { transform: translateY(-12px) scale(1.05); opacity: 0.15; }
-}
-
-/* Hero title — 金色大字 + 水墨飞白 */
+/* Hero name */
 .VPHomeHero .name {
   color: var(--mortal-gold) !important;
-  text-shadow:
-    0 0 20px rgba(201, 168, 76, 0.3),
-    0 0 40px rgba(201, 168, 76, 0.1);
+  font-size: 3.2em !important;
   font-weight: 700;
   letter-spacing: 0.1em;
+  text-shadow:
+    0 0 20px rgba(201, 168, 76, 0.25),
+    0 0 40px rgba(201, 168, 76, 0.1);
+  margin-bottom: 8px;
+}
+
+.VPHomeHero .text {
+  font-size: 1.3em !important;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
 }
 
 .VPHomeHero .tagline {
   color: var(--mortal-cloud-white) !important;
+  opacity: 0.7;
   font-style: italic;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+  font-size: 1.05em !important;
+  letter-spacing: 0.03em;
+  margin-top: 12px;
+  max-width: 600px;
+}
+
+/* Hero image */
+.VPHomeHero .image {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Hero action buttons */
 .VPHomeHero .actions {
-  margin-top: 24px;
+  margin-top: 32px;
+  gap: 16px;
 }
 
 .VPHomeHero .actions .action .item {
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-/* ==========================================
-   Four-color spiritual vortex divider
-   Inspired by 韩立结婴四色灵涡
-   ========================================== */
-.vortex-divider {
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 0.95em;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease !important;
   position: relative;
-  height: 60px;
-  margin: 40px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 
-.vortex-divider::before {
+.VPHomeHero .actions .action .item.brand {
+  background: linear-gradient(135deg, var(--mortal-jade-green), var(--mortal-jade-light)) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(45, 138, 78, 0.3);
+}
+
+.VPHomeHero .actions .action .item.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(45, 138, 78, 0.4);
+}
+
+.VPHomeHero .actions .action .item.alt {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--mortal-cloud-white) !important;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.VPHomeHero .actions .action .item.alt:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--mortal-gold);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   FEATURE CARDS — Premium glass design
+   ========================================== */
+.VPHomeFeatures {
+  padding: 48px 0;
+}
+
+.VPHomeFeatures .VPFeature {
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--vp-c-bg-elv);
+  padding: 32px 28px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHomeFeatures .VPFeature::before {
   content: '';
   position: absolute;
-  width: 120px;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent,
-    var(--vortex-red),
-    var(--vortex-yellow),
-    var(--vortex-cyan),
-    var(--vortex-blue),
-    transparent
-  );
-  animation: vortexPulse 3s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold), var(--mortal-jade-green));
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.vortex-ring {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 4s linear infinite;
-  background: conic-gradient(
-    var(--vortex-red),
-    var(--vortex-yellow),
-    var(--vortex-cyan),
-    var(--vortex-blue),
-    var(--vortex-red)
-  );
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-  opacity: 0.3;
+.VPHomeFeatures .VPFeature:hover {
+  border-color: rgba(45, 138, 78, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes vortexPulse {
-  0%, 100% { opacity: 0.3; transform: scaleX(1); }
-  50% { opacity: 0.8; transform: scaleX(1.1); }
+.VPHomeFeatures .VPFeature:hover::before {
+  opacity: 0.8;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.VPHomeFeatures .VPFeature .icon {
+  font-size: 2em;
+  margin-bottom: 12px;
+}
+
+.VPHomeFeatures .VPFeature .title {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 8px;
+}
+
+.VPHomeFeatures .VPFeature .details {
+  font-size: 0.9em;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
 }
 
 /* ==========================================
-   Small green bottle (掌天瓶) floating icon
+   CONTENT AREA — Premium reading experience
    ========================================== */
-.bottle-icon {
-  display: inline-block;
-  font-size: 20px;
-  animation: bottleFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 6px rgba(45, 138, 78, 0.3));
-  cursor: default;
-}
-
-@keyframes bottleFloat {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-6px) rotate(3deg); }
-}
-
-/* ==========================================
-   Article content area — 留白美学
-   ========================================== */
-.VPContent .VPDoc {
-  background: transparent;
-}
-
 .VPContent .VPDoc .content-container {
   background: var(--vp-c-bg-elv);
-  border-radius: 12px;
-  padding: 32px 40px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 40px 48px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle top accent line — 灵玉青 */
+/* Top accent line */
 .VPContent .VPDoc .content-container::before {
   content: '';
   position: absolute;
@@ -417,79 +478,99 @@ html {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg,
-    var(--mortal-jade-green),
-    var(--mortal-gold),
-    var(--mortal-jade-green)
-  );
-  opacity: 0.6;
+  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
+  opacity: 0.5;
 }
 
 .dark .VPContent .VPDoc .content-container {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  background: var(--vp-c-bg-elv);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================
-   Links
+   TYPOGRAPHY — Refined hierarchy
    ========================================== */
-a {
-  color: var(--mortal-jade-green);
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+body {
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a:hover {
-  color: var(--mortal-gold);
-  text-decoration: underline;
-  text-shadow: 0 0 6px rgba(201, 168, 76, 0.15);
-}
-
-/* ==========================================
-   Headings — 章回体风格
-   ========================================== */
 h1, h2, h3, h4, h5, h6 {
   color: var(--vp-c-text-1);
   font-weight: 600;
+  line-height: 1.4;
 }
 
 h1 {
   font-size: 2em;
-  border-bottom: 2px solid var(--mortal-gold);
-  padding-bottom: 12px;
+  border-bottom: none;
+  padding-bottom: 8px;
   margin-bottom: 28px;
   position: relative;
+  letter-spacing: 0.02em;
 }
 
 h1::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 60px;
-  height: 2px;
-  background: var(--mortal-jade-green);
+  height: 3px;
+  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
+  border-radius: 2px;
 }
 
 h2 {
   border-left: 4px solid var(--mortal-jade-green);
-  padding-left: 14px;
-  margin-top: 36px;
+  padding-left: 16px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
 }
 
 h3 {
   color: var(--mortal-gold);
-  margin-top: 28px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+h4 {
+  font-size: 1.05em;
+  color: var(--mortal-jade-green);
+}
+
+p {
+  line-height: 1.8;
+  margin: 12px 0;
+}
+
+/* Links */
+a {
+  color: var(--mortal-jade-green);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--mortal-gold);
+  text-decoration: underline;
 }
 
 /* ==========================================
-   Blockquote — 仙家语录风格
+   BLOCKQUOTE
    ========================================== */
 blockquote {
   position: relative;
-  border-left: 4px solid var(--mortal-jade-green);
+  border-left: 3px solid var(--mortal-jade-green);
   background: var(--vp-blockquote-bg);
-  margin: 20px 0;
+  margin: 24px 0;
   padding: 20px 24px 20px 48px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
   font-style: italic;
   color: var(--vp-c-text-2);
   font-size: 0.95em;
@@ -501,71 +582,53 @@ blockquote::before {
   position: absolute;
   left: 16px;
   top: 18px;
-  font-size: 18px;
-  opacity: 0.5;
+  font-size: 16px;
+  opacity: 0.4;
 }
 
 /* ==========================================
-   Horizontal rule — 剑意分隔
+   HORIZONTAL RULE
    ========================================== */
 hr {
   position: relative;
   border: none;
-  height: 30px;
-  margin: 36px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-hr::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
   height: 1px;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(45, 138, 78, 0.3),
-    rgba(201, 168, 76, 0.3),
-    transparent
-  );
+  margin: 40px 0;
+  background: linear-gradient(90deg, transparent, rgba(45, 138, 78, 0.2), rgba(201, 168, 76, 0.2), transparent);
 }
 
 hr::after {
   content: '🪷';
-  position: relative;
-  font-size: 14px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
   background: var(--vp-c-bg);
-  padding: 0 16px;
-  z-index: 1;
+  padding: 0 20px;
+  opacity: 0.5;
 }
 
 .dark hr::after {
   background: var(--vp-c-bg);
-  color: var(--mortal-cloud-white);
 }
 
 /* ==========================================
-   Code blocks — 墨色深夜
+   CODE BLOCKS
    ========================================== */
 div[class*='language-'] {
   background: #060e16 !important;
-  border: 1px solid rgba(201, 168, 76, 0.12);
-  border-radius: 8px;
-  margin: 20px 0;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 12px;
+  margin: 24px 0;
+  overflow: hidden;
 }
 
 div[class*='language-']::before {
   color: var(--mortal-gold) !important;
-  opacity: 0.6;
-  letter-spacing: 0.03em;
-}
-
-div[class*='language-'] .lang {
-  color: var(--mortal-gold) !important;
   opacity: 0.5;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
 }
 
 code {
@@ -576,134 +639,36 @@ code {
   font-size: 0.875em;
 }
 
-/* Code block header line numbers */
-.line-numbers-wrapper {
-  border-right: 1px solid rgba(201, 168, 76, 0.08);
-}
-
-/* Highlighted lines */
-.highlighted-word {
-  background: rgba(45, 138, 78, 0.15);
-  border-radius: 3px;
-  padding: 1px 4px;
-}
-
-/* Code group tabs */
-.vp-code-group .tabs label {
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.vp-code-group .tabs label.active {
-  border-bottom-color: var(--mortal-jade-green);
-  color: var(--mortal-jade-green);
-}
-
 /* ==========================================
-   Featured badge — 金色品质
-   ========================================== */
-.featured-badge {
-  display: inline-block;
-  padding: 3px 12px;
-  border-radius: 12px;
-  font-size: 0.75em;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  background: linear-gradient(135deg, var(--mortal-gold), var(--mortal-gold-light));
-  color: #1a1a1a;
-  box-shadow: 0 2px 8px rgba(201, 168, 76, 0.3);
-}
-
-.dark .featured-badge {
-  box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2);
-}
-
-/* ==========================================
-   Tag cloud — 御剑飞行
-   ========================================== */
-.tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px 0;
-}
-
-.tag-item {
-  display: inline-block;
-  padding: 4px 16px;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  border-radius: 20px;
-  font-size: 0.85em;
-  color: var(--vp-c-text-2);
-  background: transparent;
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.tag-item:hover {
-  background: var(--mortal-gold);
-  color: var(--mortal-bg-dark);
-  border-color: var(--mortal-gold);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
-}
-
-/* ==========================================
-   Category card — 灵玉品质
-   ========================================== */
-.category-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border: 1px solid rgba(45, 138, 78, 0.2);
-  border-radius: 10px;
-  background: var(--vp-c-bg-soft);
-  transition: all 0.3s ease;
-  cursor: default;
-  margin: 4px;
-}
-
-.category-card:hover {
-  border-color: var(--mortal-jade-green);
-  box-shadow: 0 4px 20px rgba(45, 138, 78, 0.15);
-  transform: translateY(-3px);
-}
-
-/* ==========================================
-   Table styling — 宗门谱牒风格
+   TABLES
    ========================================== */
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 thead {
   background: linear-gradient(135deg, var(--starry-deep), var(--starry-mid));
-  color: var(--mortal-gold);
 }
 
 th {
-  padding: 12px 18px;
+  padding: 14px 20px;
   font-weight: 600;
   letter-spacing: 0.04em;
+  color: var(--mortal-gold);
   border-bottom: 2px solid var(--mortal-gold);
   font-size: 0.9em;
 }
 
 td {
-  padding: 10px 18px;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
   color: var(--vp-c-text);
-}
-
-tr:last-child td {
-  border-bottom: none;
 }
 
 tbody tr {
@@ -714,96 +679,18 @@ tbody tr:hover {
   background: rgba(45, 138, 78, 0.06);
 }
 
-.dark thead {
-  background: linear-gradient(135deg, #060e16, #0a1420);
-}
-
 /* ==========================================
-   Custom blocks — 五行属性
-   ========================================== */
-.custom-block {
-  border-radius: 8px;
-  border-left: 4px solid var(--mortal-jade-green);
-  padding: 16px 20px;
-  margin: 16px 0;
-}
-
-.custom-block.tip {
-  background: rgba(45, 138, 78, 0.08);
-  border-color: var(--mortal-jade-green);
-}
-
-.custom-block.warning {
-  background: rgba(201, 168, 76, 0.1);
-  border-color: var(--mortal-gold);
-}
-
-.custom-block.danger {
-  background: rgba(196, 58, 49, 0.08);
-  border-color: var(--vortex-red);
-}
-
-.custom-block.info {
-  background: rgba(139, 92, 246, 0.08);
-  border-color: var(--mortal-purple);
-}
-
-/* Custom block title */
-.custom-block-title {
-  font-weight: 600;
-  font-size: 0.9em;
-}
-
-/* ==========================================
-   Footer — 水墨远山
-   ========================================== */
-.VPFooter {
-  position: relative;
-  background: linear-gradient(0deg,
-    var(--mortal-bg-deeper) 0%,
-    var(--mortal-bg-dark) 50%,
-    var(--starry-deep) 100%
-  ) !important;
-  color: var(--mortal-cloud-white) !important;
-  border-top: 1px solid rgba(201, 168, 76, 0.1);
-  padding-top: 40px;
-}
-
-.VPFooter::before {
-  content: '';
-  position: absolute;
-  top: -40px;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40'%3E%3Cpath fill='%230a1420' opacity='0.8' d='M0,10L60,5C120,0,240,10,360,15C480,20,600,20,720,15C840,10,960,5,1080,8C1200,11,1320,15,1380,17L1440,20L1440,40L1380,40C1320,40,1200,40,1080,40C960,40,840,40,720,40C600,40,480,40,360,40C240,40,120,40,60,40L0,40Z'/%3E%3C/svg%3E") no-repeat top / cover,
-    linear-gradient(180deg, transparent 60%, rgba(45, 138, 78, 0.05) 100%);
-  pointer-events: none;
-}
-
-.VPFooter .footer-message {
-  opacity: 0.8;
-}
-
-.VPFooter .footer-message a {
-  color: var(--mortal-gold) !important;
-}
-
-.VPFooter .footer-message a:hover {
-  color: var(--mortal-cloud-white) !important;
-}
-
-/* ==========================================
-   Sidebar
+   SIDEBAR
    ========================================== */
 .VPSidebar {
   background: var(--vp-c-bg-alt) !important;
+  border-right: 1px solid var(--vp-c-divider);
 }
 
 .VPSidebarItem .item .link {
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.2s ease;
+  padding: 8px 12px !important;
 }
 
 .VPSidebarItem .item .link:hover {
@@ -816,81 +703,233 @@ tbody tr:hover {
 }
 
 /* ==========================================
-   Home feature cards
+   CUSTOM BLOCKS
    ========================================== */
-.VPHomeFeatures .VPFeature {
-  border: 1px solid rgba(201, 168, 76, 0.12);
+.custom-block {
   border-radius: 12px;
-  background: var(--vp-c-bg-elv);
-  transition: all 0.3s ease;
-  overflow: hidden;
+  border-left: 4px solid var(--mortal-jade-green);
+  padding: 20px 24px;
+  margin: 20px 0;
+  transition: box-shadow 0.3s ease;
 }
 
-.VPHomeFeatures .VPFeature:hover {
+.custom-block:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.custom-block.tip {
+  background: rgba(45, 138, 78, 0.06);
   border-color: var(--mortal-jade-green);
-  box-shadow: 0 6px 24px rgba(45, 138, 78, 0.1);
+}
+
+.custom-block.warning {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: var(--mortal-gold);
+}
+
+.custom-block.danger {
+  background: rgba(196, 58, 49, 0.06);
+  border-color: var(--vortex-red);
+}
+
+.custom-block.info {
+  background: rgba(139, 92, 246, 0.06);
+  border-color: var(--mortal-purple);
+}
+
+/* ==========================================
+   TAG CLOUD
+   ========================================== */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 20px;
+  font-size: 0.85em;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  transition: all 0.35s ease;
+  cursor: default;
+}
+
+.tag-item:hover {
+  background: linear-gradient(135deg, var(--mortal-gold), var(--mortal-gold-light));
+  color: #1a1a1a;
+  border-color: var(--mortal-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+/* ==========================================
+   CATEGORY CARD
+   ========================================== */
+.category-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border: 1px solid rgba(45, 138, 78, 0.15);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  transition: all 0.35s ease;
+  cursor: default;
+  margin: 4px;
+}
+
+.category-card:hover {
+  border-color: var(--mortal-jade-green);
+  box-shadow: 0 8px 28px rgba(45, 138, 78, 0.12);
   transform: translateY(-4px);
 }
 
 /* ==========================================
-   Image styling
+   FEATURED BADGE
+   ========================================== */
+.featured-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, var(--mortal-gold), var(--mortal-gold-light));
+  color: #1a1a1a;
+  box-shadow: 0 2px 10px rgba(201, 168, 76, 0.3);
+}
+
+/* ==========================================
+   IMAGE STYLING
    ========================================== */
 img {
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 100%;
+  height: auto;
 }
 
 img:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* ==========================================
-   VPHomeHero slogan
+   FOOTER — Premium minimal
    ========================================== */
-.VPHomeHero .tagline {
+.VPFooter {
+  position: relative;
+  background: linear-gradient(0deg,
+    var(--mortal-bg-deeper) 0%,
+    var(--mortal-bg-dark) 60%,
+    var(--starry-deep) 100%
+  ) !important;
+  color: var(--mortal-cloud-white) !important;
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+  padding: 48px 0 32px;
+  margin-top: 48px;
+}
+
+.VPFooter::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 30'%3E%3Cpath fill='%230a1420' opacity='0.6' d='M0,10L60,5C120,0,240,10,360,12C480,14,600,12,720,10C840,8,960,5,1080,7C1200,9,1320,12,1380,14L1440,15L1440,30L1380,30C1320,30,1200,30,1080,30C960,30,840,30,720,30C600,30,480,30,360,30C240,30,120,30,60,30L0,30Z'/%3E%3C/svg%3E") no-repeat top / cover;
+  pointer-events: none;
+}
+
+.VPFooter .footer-message {
+  opacity: 0.7;
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+}
+
+.VPFooter .footer-message a {
   color: var(--mortal-gold) !important;
-  font-style: italic;
-  letter-spacing: 0.03em;
-  opacity: 0.9;
+  transition: color 0.3s ease;
+}
+
+.VPFooter .footer-message a:hover {
+  color: var(--mortal-cloud-white) !important;
+}
+
+.VPFooter .footer-message .copyright {
+  opacity: 0.5;
+  font-size: 0.85em;
+  margin-top: 8px;
 }
 
 /* ==========================================
-   Smooth scrolling
+   SCROLL ANIMATION
    ========================================== */
 html {
   scroll-behavior: smooth;
 }
 
 /* ==========================================
-   Subtle transition on all interactive elements
+   RESPONSIVE
    ========================================== */
-a, button {
-  transition: all 0.25s ease;
-}
+@media (max-width: 960px) {
+  .VPHomeHero {
+    min-height: 60vh;
+  }
 
-/* ==========================================
-   Responsive adjustments
-   ========================================== */
-@media (max-width: 768px) {
+  .VPHomeHero .name {
+    font-size: 2.4em !important;
+  }
+
+  .VPHomeHero .text {
+    font-size: 1.1em !important;
+  }
+
   .VPContent .VPDoc .content-container {
-    padding: 20px 16px;
-    border-radius: 8px;
-  }
-
-  h1 {
-    font-size: 1.6em;
-  }
-
-  .VPHomeHero::after {
-    font-size: 36px;
+    padding: 24px 20px;
+    border-radius: 12px;
   }
 }
 
 @media (max-width: 640px) {
+  .VPHomeHero {
+    min-height: 50vh;
+  }
+
+  .VPHomeHero .name {
+    font-size: 1.8em !important;
+  }
+
+  .VPHomeHero .text {
+    font-size: 1em !important;
+  }
+
+  .VPHomeHero .tagline {
+    font-size: 0.9em !important;
+  }
+
   .VPContent .VPDoc .content-container {
-    padding: 16px 12px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .VPHomeFeatures .VPFeature {
+    padding: 24px 20px;
+  }
+
+  .VPHomeFeatures .VPFeature .title {
+    font-size: 1em;
   }
 
   .tag-cloud {
@@ -899,24 +938,36 @@ a, button {
 
   .tag-item {
     font-size: 0.8em;
-    padding: 3px 10px;
+    padding: 4px 12px;
+  }
+
+  .category-card {
+    padding: 12px 16px;
   }
 }
 
-/* Print styles — 清除修仙特效 */
+/* ==========================================
+   PRINT
+   ========================================== */
 @media print {
+  .VPNavBar::before,
   .VPHomeHero::before,
   .VPHomeHero::after,
-  .VPNavBar::before {
+  .dark::before {
     display: none !important;
   }
 
   .VPContent .VPDoc .content-container {
     box-shadow: none !important;
+    border: none !important;
     padding: 0 !important;
   }
 
   .VPContent .VPDoc .content-container::before {
     display: none;
+  }
+
+  @page {
+    margin: 1.5cm;
   }
 }
