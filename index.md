@@ -34,15 +34,18 @@ features:
 
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0 32px;">
 
-<article style="flex: 1; min-width: 280px; padding: 20px; border: 1px solid rgba(45, 138, 78, 0.2); border-radius: 10px; background: var(--vp-c-bg-soft); transition: all 0.3s ease;">
-  <h3 style="margin-top: 0;">
-    <a href="/posts/hello-world">Hello, 修仙世界</a>
-  </h3>
-  <p style="font-size: 0.85em; color: var(--vp-c-text-2);">
-    <span>📅 2026-05-24</span>
-    <span style="margin-left: 12px;">🏷️ <a href="/tags/#开始">开始</a>、<a href="/tags/#修仙">修仙</a></span>
-  </p>
-  <p style="margin-bottom: 0;">凡人修仙，逆天而行。纵使伪灵根资质，凭借掌天瓶之助，亦可踏入仙途。</p>
+<article style="flex: 1; min-width: 280px; border: 1px solid rgba(45, 138, 78, 0.2); border-radius: 10px; background: var(--vp-c-bg-soft); overflow: hidden; transition: all 0.3s ease;">
+  <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-fenglei-chi.jpg" alt="韩立风雷翅" style="width:100%;height:200px;object-fit:cover;border-radius:0;box-shadow:none;">
+  <div style="padding: 20px;">
+    <h3 style="margin-top: 0;">
+      <a href="/posts/hello-world">Hello, 修仙世界</a>
+    </h3>
+    <p style="font-size: 0.85em; color: var(--vp-c-text-2);">
+      <span>📅 2026-05-24</span>
+      <span style="margin-left: 12px;">🏷️ 开始、修仙</span>
+    </p>
+    <p style="margin-bottom: 0;">凡人修仙，逆天而行。纵使伪灵根资质，凭借掌天瓶之助，亦可踏入仙途。</p>
+  </div>
 </article>
 
 </div>
@@ -83,3 +86,5 @@ features:
 
 > 修仙九境：炼气、筑基、结丹、元婴、化神、炼虚、合体、大乘、真仙。
 > 编程亦然：从 Hello World 到架构师，每一步都是境界的突破。
+
+![凡人修仙传 · 韩立持剑](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-sword.jpg "韩立·青竹蜂云剑")
