@@ -352,23 +352,27 @@ h1, h2, h3, h4, h5, h6 {
 .VPHomeHero .name {
   font-family: var(--font-display) !important;
   color: var(--rice-paper) !important;
-  font-size: 3.6em !important;
+  font-size: 3.2em !important;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-shadow:
     0 0 40px rgba(192, 59, 59, 0.3),
     0 0 80px rgba(196, 168, 75, 0.15);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   animation: fadeInUp 0.8s ease-out;
+  line-height: 1.3;
+  word-break: keep-all;
 }
 
 .VPHomeHero .text {
   color: var(--gold-light) !important;
   font-family: var(--font-display) !important;
-  font-size: 1.2em !important;
-  letter-spacing: 0.6em;
+  font-size: 1.1em !important;
+  letter-spacing: 0.25em;
   opacity: 0.9;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  line-height: 1.6;
+  word-break: keep-all;
 }
 
 .VPHomeHero .tagline {
