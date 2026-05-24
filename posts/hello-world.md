@@ -14,7 +14,7 @@ description: 凡人修仙，逆天而行。纵使伪灵根资质，凭借掌天�
 > 凡人修仙，逆天而行。
 > 吾等修士，与天争命，不进则退。
 
-![韩立结婴 - 四色灵涡名场面](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-jieying-4k.jpg "韩立结婴 · 四色灵涡")
+![云海](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/misty-peaks.jpg "云海")
 
 这是 **青墨修仙录** 的开篇之作。
 
@@ -72,7 +72,7 @@ description: 凡人修仙，逆天而行。纵使伪灵根资质，凭借掌天�
 
 > 修仙之路漫长而艰辛，技术之路亦然。但我相信，只要坚持不懈，以凡人之躯，亦能行代码之道，修无上仙途。
 
-![凡人修仙传 · 韩立与掌天瓶](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-zhangtianping.jpg "韩立·掌天瓶")
+![山间](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/sunset-mountains.jpg "山间")
 
 共勉。
 

@@ -125,6 +125,17 @@ body {
     radial-gradient(ellipse at 70% 20%, rgba(196,168,75,0.03) 0%, transparent 50%);
 }
 
+/* Fix dark mode text colors */
+.dark .vp-doc,
+.dark .vp-doc p,
+.dark .vp-doc li,
+.dark .content-container,
+.dark .VPContent { color: var(--vp-c-text); }
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4 { color: var(--vp-c-text-1); }
+
 img { max-width: 100%; height: auto; display: block; }
 
 /* =========================================================
@@ -256,25 +267,6 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   background-color: #050510;
-  background-image: url('https://cdn.jsdelivr.net/gh/ywtuzi/img@master/galaxy-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-/* Dark gradient overlay */
-.VPHomeHero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg,
-    rgba(5,5,16,0.4) 0%,
-    rgba(5,5,16,0.55) 30%,
-    rgba(5,5,16,0.75) 60%,
-    rgba(5,5,16,0.92) 100%
-  );
-  pointer-events: none;
 }
 
 .VPHomeHero .container {
@@ -283,7 +275,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 80px 0;
 }
 
-/* Hero title */
+/* Hero title — no wrap */
 .VPHomeHero .name {
   font-family: var(--font-display) !important;
   color: var(--rice-paper) !important;
@@ -293,6 +285,11 @@ img { max-width: 100%; height: auto; display: block; }
   text-shadow: 0 0 40px rgba(192,59,59,0.25), 0 0 80px rgba(196,168,75,0.12);
   margin-bottom: 12px;
   line-height: 1.3;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .VPHomeHero .name { white-space: normal; }
 }
 
 .VPHomeHero .text {

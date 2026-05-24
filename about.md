@@ -2,7 +2,7 @@
 
 > 修仙之路漫漫，吾将上下而求索。
 
-![凡人修仙传 · 韩立意境图](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-shenshi.jpg "韩立·风雷翅")
+![云海](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/misty-mountain.jpg "云海")
 
 一名热爱技术与写作的程序员，在代码的世界里修行，在文字的世界里成长。
 

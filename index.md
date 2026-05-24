@@ -41,7 +41,7 @@ features:
 
 <article class="post-card">
   <div class="post-card-image">
-    <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-jieying-4k.jpg" alt="韩立结婴">
+    <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/misty-peaks.jpg" alt="韩立结婴">
     <span class="post-card-badge">最新</span>
   </div>
   <div class="post-card-body">
@@ -57,7 +57,7 @@ features:
 
 <article class="post-card">
   <div class="post-card-image">
-    <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/hanli-fenglei-chi.jpg" alt="韩立风雷翅">
+    <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/sunset-mountains.jpg" alt="韩立风雷翅">
   </div>
   <div class="post-card-body">
     <div class="post-card-meta">📅 2026-05-24 · 随笔</div>
