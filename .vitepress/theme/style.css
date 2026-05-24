@@ -1,22 +1,26 @@
-/* ========================================
-   凡人修仙传 — 青墨修仙 Theme v4
-   Inspired by fanren-website.pages.dev
-   Design philosophy:
-   - 中国传统美学: 宣纸 · 水墨 · 朱砂 · 鎏金
-   - 文人气息: 留白 · 印章 · 笔触
-   - 修仙意境: 星河 · 云雾 · 剑意
-   ======================================== */
+/* =========================================================
+   凡人修仙传 · 青墨修仙录 Theme v5
+   =========================================================
+   Design Language:
+   - 中国传统色系: 宣纸 · 朱砂 · 鎏金 · 墨色 · 青玉
+   - 文人气息: 留白 · 印章 · 笔触 · 卷轴
+   - 修仙意境: 星河 · 云雾 · 剑意 · 灵涡
+   ========================================================= */
 
-/* Google Fonts 导入 */
-@import "https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@300;400;500&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+KuaiLe&display=swap";
 
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
 :root {
-  /* ---- 中国传统色系 ---- */
+  /* ---- Chinese ink palette ---- */
   --ink-full: #0d0d0d;
   --ink-heavy: #1a1a1a;
   --ink-medium: #3d3d3d;
   --ink-light: #6b6b6b;
   --ink-faint: #a0a0a0;
+
+  /* ---- Accent colors ---- */
   --vermillion: #c03b3b;
   --vermillion-dark: #8b1a1a;
   --gold: #c4a84b;
@@ -24,13 +28,17 @@
   --jade: #5b8c5a;
   --jade-light: #7aaa7a;
   --celadon: #b5c9b0;
+
+  /* ---- Paper textures ---- */
   --parchment: #f5f0e8;
   --parchment-dark: #e8dfd0;
   --rice-paper: #fafaf7;
+
+  /* ---- Dark mode ---- */
   --mortal-bg-dark: #0a1420;
   --mortal-bg-deeper: #060e16;
 
-  /* ---- Semantic VitePress aliases (light) ---- */
+  /* ---- Semantic VitePress overrides (light) ---- */
   --vp-c-bg: var(--parchment);
   --vp-c-bg-alt: #efe9de;
   --vp-c-bg-elv: var(--rice-paper);
@@ -41,28 +49,23 @@
   --vp-c-brand: var(--jade);
   --vp-c-brand-light: var(--jade-light);
   --vp-c-brand-dark: #4a7a4a;
-  --vp-c-divider: rgba(0, 0, 0, 0.08);
-  --vp-c-gutter: rgba(0, 0, 0, 0.04);
+  --vp-c-divider: rgba(0, 0, 0, 0.07);
+  --vp-c-gutter: rgba(0, 0, 0, 0.03);
   --vp-code-bg: #1e2a36;
   --vp-code-color: #e8e4d9;
   --vp-code-block-bg: #0a121c;
   --vp-blockquote-bg: rgba(91, 140, 90, 0.08);
 
   /* ---- Fonts ---- */
-  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
+  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', serif;
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-
-  /* ---- Custom display font ---- */
   --font-display: 'Ma Shan Zheng', 'ZCOOL KuaiLe', 'Noto Serif SC', serif;
   --font-body: 'Noto Serif SC', 'Source Han Serif SC', serif;
-
-  /* ---- Spaces ---- */
-  --space-section: 4rem;
 }
 
-/* ==========================================
-   DARK THEME — 星河深空
-   ========================================== */
+/* =========================================================
+   2. DARK MODE
+   ========================================================= */
 .dark {
   --vp-c-bg: var(--mortal-bg-dark);
   --vp-c-bg-alt: #0c1a2e;
@@ -71,7 +74,7 @@
   --vp-c-text: #d0ccc0;
   --vp-c-text-1: var(--parchment);
   --vp-c-text-2: #9a968a;
-  --vp-c-divider: rgba(201, 168, 76, 0.12);
+  --vp-c-divider: rgba(196, 168, 75, 0.1);
   --vp-c-brand: var(--jade);
   --vp-c-brand-light: var(--jade-light);
   --vp-code-bg: rgba(26, 37, 51, 0.8);
@@ -79,170 +82,100 @@
   --vp-blockquote-bg: rgba(91, 140, 90, 0.1);
 }
 
-/* ==========================================
-   BASE STYLES
-   ========================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* =========================================================
+   3. BASE RESET & BODY
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   font-family: var(--font-body);
   background-color: var(--parchment);
-  color: var(--ink-full);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  color: var(--ink-medium);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.012'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   line-height: 1.8;
   overflow-x: hidden;
-  font-feature-settings: 'kern' 1, 'liga' 1;
   text-rendering: optimizeLegibility;
 }
 
 .dark body,
-.dark {
-  background-image: none;
-}
+.dark { background-image: none; }
 
+/* Dark starry overlay */
 .dark::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   background:
-    radial-gradient(1px 1px at 10% 5%, rgba(255,255,255,0.25), transparent),
-    radial-gradient(1.5px 1.5px at 25% 15%, rgba(255,255,255,0.35), transparent),
-    radial-gradient(1px 1px at 50% 8%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1.5px 1.5px at 75% 12%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.5px 1.5px at 90% 20%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(1px 1px at 35% 25%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 10% 5%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 25% 15%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 50% 8%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 75% 12%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 35% 25%, rgba(255,255,255,0.2), transparent),
     radial-gradient(1px 1px at 60% 35%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.2), transparent),
     radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.1), transparent),
-    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(1.5px 1.5px at 20% 60%, rgba(255,255,255,0.1), transparent),
-    radial-gradient(1px 1px at 85% 65%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(ellipse at 30% 80%, rgba(91, 140, 90, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 20%, rgba(196, 168, 75, 0.04) 0%, transparent 50%);
+    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.1), transparent),
+    radial-gradient(ellipse at 30% 80%, rgba(91,140,90,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 20%, rgba(196,168,75,0.03) 0%, transparent 50%);
 }
 
-img { max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; display: block; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.4;
-  color: var(--vp-c-text-1);
-}
-
-/* ==========================================
-   SCROLLBAR
-   ========================================== */
+/* =========================================================
+   4. SCROLLBAR
+   ========================================================= */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--parchment-dark); }
 ::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-light); }
-
 .dark ::-webkit-scrollbar-track { background: var(--mortal-bg-dark); }
-.dark ::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); }
-.dark ::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 76, 0.5); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(196,168,75,0.25); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(196,168,75,0.4); }
 
-::selection {
-  background: var(--vermillion);
-  color: var(--rice-paper);
-}
+::selection { background: var(--vermillion); color: var(--rice-paper); }
 
-/* ==========================================
-   ANIMATIONS
-   ========================================== */
-@keyframes scrollReveal {
-  0% { opacity: 0; filter: blur(3px); transform: translateY(30px); }
-  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes sealStamp {
-  0% { opacity: 0; transform: scale(1.6) rotate(-12deg); }
-  60% { opacity: 1; transform: scale(0.95) rotate(2deg); }
-  100% { opacity: 1; transform: scale(1) rotate(0); }
-}
-
-@keyframes brushSweep {
-  0% { transform-origin: 0; transform: scaleX(0); }
-  100% { transform-origin: 0; transform: scaleX(1); }
-}
-
-@keyframes inkDrop {
-  0% { height: 0; opacity: 0; }
-  80% { height: var(--drip-h, 40px); opacity: 1; }
-  100% { height: var(--drip-h, 40px); opacity: 0.6; }
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-/* ==========================================
-   GLASSMORPHISM NAVIGATION
-   ========================================== */
+/* =========================================================
+   5. NAVIGATION — 朱砂玻璃
+   ========================================================= */
 .VPNav {
   position: sticky !important;
   top: 0;
-  z-index: 999 !important;
+  z-index: 100 !important;
 }
 
 .VPNavBar {
-  background: rgba(245, 240, 232, 0.95) !important;
-  backdrop-filter: blur(16px) saturate(1.3) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(1.3) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .VPNavBar {
-    background: #f5f0e8 !important;
-  }
-  .dark .VPNavBar {
-    background: #0a1420 !important;
-  }
+  background: rgba(245, 240, 232, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
 }
 
 .dark .VPNavBar {
-  background: rgba(10, 20, 32, 0.92) !important;
-  backdrop-filter: blur(20px) saturate(1.5) !important;
-  border-bottom: 1px solid rgba(196, 168, 75, 0.12) !important;
+  background: rgba(10, 20, 32, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(196, 168, 75, 0.08) !important;
 }
 
-.VPNavBar .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Logo — 朱砂印风格 */
+/* Site title — 朱砂方印 */
 .VPNavBarTitle .title {
   font-family: var(--font-display) !important;
   color: var(--ink-full) !important;
-  font-size: 1.3em !important;
-  letter-spacing: 0.15em;
+  font-size: 1.25em !important;
+  letter-spacing: 0.12em;
   position: relative;
-  padding: 0 4px;
-  transition: all 0.3s ease;
+  padding: 0 6px;
+  transition: color 0.3s;
 }
 
 .dark .VPNavBarTitle .title {
   color: var(--gold) !important;
-  text-shadow: 0 0 12px rgba(196, 168, 75, 0.2);
 }
 
 .VPNavBarTitle .title::after {
@@ -250,86 +183,76 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: -2px -8px;
   border: 1.5px solid var(--vermillion);
-  border-radius: 3px;
-  opacity: 0.4;
+  border-radius: 2px;
+  opacity: 0.35;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
 }
 
-.VPNavBarTitle .title:hover::after {
-  opacity: 0.7;
-}
+.VPNavBarTitle .title:hover::after { opacity: 0.65; }
 
-/* Nav links — 毛笔字风格 */
+/* Nav links */
 .VPNavBarMenuLink {
   font-family: var(--font-display) !important;
   color: var(--ink-medium) !important;
-  letter-spacing: 0.08em;
-  font-size: 1.05em !important;
-  padding: 8px 14px !important;
-  margin: 0 2px;
+  letter-spacing: 0.06em;
+  font-size: 1em !important;
+  padding: 8px 12px !important;
   position: relative;
-  transition: color 0.3s ease !important;
+  transition: color 0.3s !important;
 }
 
 .VPNavBarMenuLink::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
   width: 0;
   height: 2px;
   background: var(--vermillion);
-  transition: all 0.3s ease;
+  transition: width 0.3s ease;
   transform: translateX(-50%);
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
-.VPNavBarMenuLink:hover {
-  color: var(--vermillion) !important;
-}
-
-.VPNavBarMenuLink:hover::after {
-  width: 70%;
-}
-
+.VPNavBarMenuLink:hover,
 .VPNavBarMenuLink.active {
   color: var(--vermillion) !important;
 }
 
+.VPNavBarMenuLink:hover::after,
 .VPNavBarMenuLink.active::after {
-  width: 80%;
+  width: 60%;
 }
 
-/* Flying sword — 更柔和的动画 */
+/* Flying sword */
 .VPNavBar::before {
   content: '🗡️';
   position: absolute;
   left: 50%;
-  bottom: -7px;
+  bottom: -6px;
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 11px;
   animation: swordFloat 4s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.2;
   z-index: 10;
-  filter: drop-shadow(0 0 3px rgba(91, 140, 90, 0.15));
 }
 
 @keyframes swordFloat {
-  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg); opacity: 0.2; }
-  25% { transform: translateX(-50%) translateY(-3px) rotate(-1deg); opacity: 0.35; }
-  50% { transform: translateX(-50%) translateY(0) rotate(3deg); opacity: 0.25; }
-  75% { transform: translateX(-50%) translateY(-4px) rotate(0deg); opacity: 0.3; }
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg); opacity: 0.15; }
+  25% { transform: translateX(-50%) translateY(-3px) rotate(-1deg); opacity: 0.3; }
+  50% { transform: translateX(-50%) translateY(0) rotate(3deg); opacity: 0.2; }
+  75% { transform: translateX(-50%) translateY(-4px) rotate(0deg); opacity: 0.25; }
 }
 
-/* ==========================================
-   HERO SECTION — 星河背景 + 水墨意境
-   ========================================== */
+/* =========================================================
+   6. HERO — 星河卷轴
+   ========================================================= */
 .VPHomeHero {
   position: relative;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   background-color: #050510;
@@ -340,22 +263,17 @@ h1, h2, h3, h4, h5, h6 {
   background-attachment: fixed;
 }
 
+/* Dark gradient overlay */
 .VPHomeHero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    /* 渐暗遮罩 */
-    linear-gradient(180deg,
-      rgba(5, 5, 16, 0.3) 0%,
-      rgba(5, 5, 16, 0.5) 40%,
-      rgba(5, 5, 16, 0.7) 70%,
-      rgba(5, 5, 16, 0.9) 100%
-    ),
-    /* 朱砂红晕 */
-    radial-gradient(ellipse at 30% 40%, rgba(192, 59, 59, 0.08) 0%, transparent 50%),
-    /* 金色光晕 */
-    radial-gradient(ellipse at 70% 60%, rgba(196, 168, 75, 0.06) 0%, transparent 50%);
+  background: linear-gradient(160deg,
+    rgba(5,5,16,0.4) 0%,
+    rgba(5,5,16,0.55) 30%,
+    rgba(5,5,16,0.75) 60%,
+    rgba(5,5,16,0.92) 100%
+  );
   pointer-events: none;
 }
 
@@ -365,133 +283,104 @@ h1, h2, h3, h4, h5, h6 {
   padding: 80px 0;
 }
 
-/* 标题 — 朱砂大字 */
+/* Hero title */
 .VPHomeHero .name {
   font-family: var(--font-display) !important;
   color: var(--rice-paper) !important;
-  font-size: 3.2em !important;
+  font-size: 3.4em !important;
   font-weight: 400;
   letter-spacing: 0.12em;
-  text-shadow:
-    0 0 40px rgba(192, 59, 59, 0.3),
-    0 0 80px rgba(196, 168, 75, 0.15);
-  margin-bottom: 16px;
-  animation: fadeInUp 0.8s ease-out;
+  text-shadow: 0 0 40px rgba(192,59,59,0.25), 0 0 80px rgba(196,168,75,0.12);
+  margin-bottom: 12px;
   line-height: 1.3;
-  word-break: keep-all;
 }
 
 .VPHomeHero .text {
-  color: var(--gold-light) !important;
   font-family: var(--font-display) !important;
+  color: var(--gold-light) !important;
   font-size: 1.1em !important;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   opacity: 0.9;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
   line-height: 1.6;
-  word-break: keep-all;
 }
 
 .VPHomeHero .tagline {
-  color: rgba(255, 255, 255, 0.75) !important;
-  font-family: var(--font-body) !important;
-  font-size: 1em !important;
-  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.65) !important;
+  font-size: 0.95em !important;
+  letter-spacing: 0.06em;
   margin-top: 16px;
-  max-width: 520px;
-  line-height: 1.8;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+  max-width: 480px;
+  line-height: 1.7;
 }
 
-/* Hero divider — 朱砂点 + 金线 */
-.VPHomeHero .tagline::before,
-.VPHomeHero .tagline::after {
-  content: '';
-  display: block;
-  margin: 16px auto 16px 0;
-}
-
-/* Action buttons */
+/* Hero buttons */
 .VPHomeHero .actions {
-  margin-top: 36px;
-  gap: 16px;
-  animation: fadeInUp 0.8s ease-out 0.6s both;
+  margin-top: 28px;
+  gap: 14px;
 }
 
 .VPHomeHero .actions .action .item {
   font-family: var(--font-display);
-  letter-spacing: 0.1em;
-  border-radius: 4px;
-  padding: 12px 28px;
-  font-size: 1em;
-  transition: all 0.3s ease !important;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  padding: 10px 24px;
+  font-size: 0.95em;
+  transition: all 0.3s !important;
 }
 
 .VPHomeHero .actions .action .item.brand {
   background: var(--vermillion) !important;
   color: #fff !important;
-  box-shadow: 0 4px 20px rgba(192, 59, 59, 0.3);
+  box-shadow: 0 4px 16px rgba(192,59,59,0.25);
 }
 
 .VPHomeHero .actions .action .item.brand:hover {
   background: var(--vermillion-dark) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(192, 59, 59, 0.4);
+  box-shadow: 0 6px 24px rgba(192,59,59,0.35);
 }
 
 .VPHomeHero .actions .action .item.alt {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255,255,255,0.06) !important;
   color: var(--rice-paper) !important;
-  border: 1px solid rgba(196, 168, 75, 0.3);
-  backdrop-filter: blur(4px);
+  border: 1px solid rgba(196,168,75,0.2);
 }
 
 .VPHomeHero .actions .action .item.alt:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255,255,255,0.12) !important;
   border-color: var(--gold);
-  transform: translateY(-2px);
 }
 
-/* ==========================================
-   SCROLL REVEAL — 通用滚动动画
-   ========================================== */
-.scroll-reveal {
-  opacity: 0;
-  animation: scrollReveal 0.8s ease-out forwards;
-}
-
-/* ==========================================
-   FEATURE CARDS — 宣纸卡片
-   ========================================== */
+/* =========================================================
+   7. FEATURES SECTION
+   ========================================================= */
 .VPHomeFeatures {
   padding: 48px 0;
   position: relative;
 }
 
-/* Subtle decorative band */
 .VPHomeFeatures::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 60px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--vermillion), transparent);
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .VPHomeFeatures .VPFeature {
   background: var(--rice-paper);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-  padding: 32px 28px;
-  transition: all 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 3px;
+  padding: 28px 24px;
+  transition: all 0.3s;
   position: relative;
   overflow: hidden;
 }
 
-/* 朱砂红线 — 悬停时从顶滑下 */
 .VPHomeFeatures .VPFeature::before {
   content: '';
   position: absolute;
@@ -500,53 +389,239 @@ h1, h2, h3, h4, h5, h6 {
   width: 3px;
   height: 0;
   background: var(--vermillion);
-  transition: height 0.4s ease;
+  transition: height 0.35s;
 }
 
-.VPHomeFeatures .VPFeature:hover::before {
-  height: 100%;
-}
+.VPHomeFeatures .VPFeature:hover::before { height: 100%; }
+.VPHomeFeatures .VPFeature:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.05); }
 
-.VPHomeFeatures .VPFeature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-}
-
-.VPHomeFeatures .VPFeature .icon {
-  font-size: 2em;
-  margin-bottom: 12px;
-}
-
+.VPHomeFeatures .VPFeature .icon { font-size: 1.8em; margin-bottom: 10px; }
 .VPHomeFeatures .VPFeature .title {
   font-family: var(--font-display);
-  font-size: 1.2em;
-  letter-spacing: 0.06em;
-  color: var(--ink-heavy);
+  font-size: 1.15em;
+  letter-spacing: 0.05em;
   font-weight: 400;
+  color: var(--ink-heavy);
   margin-bottom: 8px;
 }
+.VPHomeFeatures .VPFeature .details { font-size: 0.88em; color: var(--ink-light); line-height: 1.7; }
 
-.VPHomeFeatures .VPFeature .details {
-  font-family: var(--font-body);
-  font-size: 0.9em;
+/* =========================================================
+   7b. HOMEPAGE CUSTOM SECTIONS
+   ========================================================= */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 20px 0 48px;
+}
+
+.post-card {
+  background: var(--rice-paper);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+}
+
+.post-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.post-card:hover .post-card-image img {
+  transform: scale(1.05);
+}
+
+.post-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-display);
+  font-size: 0.7em;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--vermillion);
+  padding: 2px 10px;
+}
+
+.post-card-body {
+  padding: 24px;
+}
+
+.post-card-meta {
+  font-size: 0.8em;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.post-card-title {
+  margin: 0 0 10px 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.post-card-title a {
+  color: var(--ink-heavy);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.post-card-title a:hover {
+  color: var(--vermillion);
+}
+
+.post-card-excerpt {
+  margin: 0;
+  font-size: 0.88em;
   color: var(--ink-light);
   line-height: 1.7;
 }
 
-/* ==========================================
-   CONTENT AREA — 宣纸文章区
-   ========================================== */
-.VPContent .VPDoc .content-container {
-  background: var(--rice-paper);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 4px;
-  padding: 40px 48px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-  position: relative;
-  transition: box-shadow 0.3s ease;
+.post-card-tags {
+  margin-top: 14px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
-/* 顶部朱砂线 */
+.post-card-tags span {
+  font-family: var(--font-display);
+  font-size: 0.75em;
+  color: var(--jade);
+  border: 1px solid rgba(91,140,90,0.2);
+  padding: 2px 10px;
+  letter-spacing: 0.04em;
+}
+
+.home-section {
+  margin: 48px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.section-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--ink-faint);
+  opacity: 0.35;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.4em;
+  letter-spacing: 0.1em;
+  color: var(--ink-heavy);
+}
+
+.section-body p {
+  font-size: 0.92em;
+  color: var(--ink-light);
+  line-height: 1.9;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: var(--rice-paper);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.category-item:hover {
+  border-color: var(--vermillion);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(192,59,59,0.05);
+}
+
+.category-icon { font-size: 1.8em; }
+
+.category-name {
+  font-family: var(--font-display);
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  color: var(--ink-heavy);
+}
+
+.category-count {
+  font-size: 0.78em;
+  color: var(--ink-faint);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.home-quote {
+  margin: 48px 0 32px;
+  padding: 28px 24px;
+  background: var(--rice-paper);
+  border: 1px solid rgba(0,0,0,0.03);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.home-quote p {
+  font-family: var(--font-display);
+  font-size: 1.05em;
+  letter-spacing: 0.06em;
+  color: var(--ink-medium);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.home-quote p + p {
+  margin-top: 8px;
+}
+
+/* =========================================================
+   8. CONTENT AREA
+   ========================================================= */
+.VPContent .VPDoc .content-container {
+  background: var(--rice-paper);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 3px;
+  padding: 36px 44px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+
 .VPContent .VPDoc .content-container::before {
   content: '';
   position: absolute;
@@ -555,124 +630,96 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--vermillion), var(--gold), transparent);
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .dark .VPContent .VPDoc .content-container {
-  background: rgba(15, 25, 35, 0.85);
-  border: 1px solid rgba(196, 168, 75, 0.08);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  background: rgba(15,25,35,0.85);
+  border: 1px solid rgba(196,168,75,0.06);
+  backdrop-filter: blur(6px);
 }
 
-/* ==========================================
-   TYPOGRAPHY — 文人排版
-   ========================================== */
-h1 {
+/* =========================================================
+   9. TYPOGRAPHY
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-size: 2.2em;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 28px;
-  position: relative;
+  line-height: 1.4;
   color: var(--ink-heavy);
 }
 
+h1 {
+  font-size: 2em;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 10px;
+}
 h1::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: 0;
   left: 0;
-  width: 60px;
+  width: 50px;
   height: 2px;
   background: var(--vermillion);
 }
 
 h2 {
-  font-family: var(--font-display);
-  font-size: 1.6em;
-  letter-spacing: 0.08em;
-  font-weight: 400;
+  font-size: 1.5em;
+  letter-spacing: 0.06em;
   border-left: 3px solid var(--vermillion);
-  padding-left: 16px;
-  margin-top: 40px;
-  margin-bottom: 16px;
-  color: var(--ink-heavy);
+  padding-left: 14px;
+  margin: 36px 0 14px;
 }
 
 h3 {
   font-family: var(--font-display);
-  font-size: 1.3em;
-  letter-spacing: 0.06em;
-  font-weight: 400;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
   color: var(--jade);
-  margin-top: 32px;
-  margin-bottom: 12px;
+  margin: 28px 0 10px;
 }
 
-/* 链接 — 朱砂色 + 毛笔悬停 */
-a {
-  color: var(--jade);
-  transition: all 0.25s ease;
-}
+p { line-height: 1.8; margin: 10px 0; color: var(--ink-medium); }
 
-a:hover {
-  color: var(--vermillion);
-  text-decoration: none;
-}
+/* Links */
+a { color: var(--jade); transition: color 0.25s; text-decoration: none; }
+a:hover { color: var(--vermillion); }
 
-/* 毛笔下划线效果 */
-.content-container a:not(.header-anchor):not(.nav-link):not(.category-card) {
-  position: relative;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(91, 140, 90, 0.3);
-  transition: border-color 0.3s ease;
-}
-
-.content-container a:not(.header-anchor):not(.nav-link):not(.category-card):hover {
-  border-bottom-color: var(--vermillion);
-}
-
-/* 段落 */
-p {
-  line-height: 1.9;
-  margin: 12px 0;
-  color: var(--ink-medium);
-}
-
-/* ==========================================
-   BLOCKQUOTE — 朱砂引文
-   ========================================== */
+/* =========================================================
+   10. BLOCKQUOTE
+   ========================================================= */
 blockquote {
   position: relative;
   border-left: 3px solid var(--vermillion);
   background: var(--vp-blockquote-bg);
-  margin: 24px 0;
-  padding: 20px 24px 20px 48px;
-  border-radius: 0;
+  margin: 20px 0;
+  padding: 16px 20px 16px 44px;
   font-style: italic;
   color: var(--ink-light);
-  font-size: 0.95em;
+  font-size: 0.93em;
   line-height: 1.8;
+  border-radius: 0;
 }
 
 blockquote::before {
   content: '☁️';
   position: absolute;
-  left: 16px;
-  top: 18px;
-  font-size: 16px;
-  opacity: 0.35;
+  left: 14px;
+  top: 14px;
+  font-size: 15px;
+  opacity: 0.3;
 }
 
-/* HORIZONTAL RULE */
+/* =========================================================
+   11. HORIZONTAL RULE
+   ========================================================= */
 hr {
-  position: relative;
   border: none;
   height: 1px;
-  margin: 40px 0;
+  margin: 36px 0;
   background: linear-gradient(90deg, transparent, var(--ink-faint), transparent);
 }
 
@@ -682,133 +729,117 @@ hr::after {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: 11px;
   background: var(--vp-c-bg);
-  padding: 0 20px;
-  opacity: 0.4;
+  padding: 0 18px;
+  opacity: 0.35;
 }
 
 .dark hr::after { background: var(--vp-c-bg); }
 
-/* ==========================================
-   CODE BLOCKS
-   ========================================== */
+/* =========================================================
+   12. CODE BLOCKS
+   ========================================================= */
 div[class*='language-'] {
   background: #060e16 !important;
-  border: 1px solid rgba(196, 168, 75, 0.1);
-  border-radius: 4px;
-  margin: 24px 0;
+  border: 1px solid rgba(196,168,75,0.08);
+  border-radius: 3px;
+  margin: 20px 0;
   overflow: hidden;
 }
 
 div[class*='language-']::before {
   color: var(--gold) !important;
-  opacity: 0.5;
-  font-size: 0.8em;
-  letter-spacing: 0.05em;
+  opacity: 0.4;
+  font-size: 0.75em;
+  letter-spacing: 0.04em;
 }
 
 code {
   color: var(--parchment);
-  background: rgba(0, 0, 0, 0.1);
-  padding: 2px 8px;
-  border-radius: 3px;
+  background: rgba(0,0,0,0.08);
+  padding: 2px 6px;
+  border-radius: 2px;
   font-size: 0.875em;
 }
 
-.dark code {
-  background: rgba(255, 255, 255, 0.08);
-}
+.dark code { background: rgba(255,255,255,0.06); }
 
-/* ==========================================
-   TABLES — 宗门谱牒
-   ========================================== */
+/* =========================================================
+   13. TABLES
+   ========================================================= */
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  margin: 24px 0;
-}
-
-thead {
-  background: var(--ink-heavy);
-  color: var(--gold-light);
-}
-
-th {
-  font-family: var(--font-display);
-  font-weight: 400;
-  padding: 12px 18px;
-  letter-spacing: 0.08em;
-  border-bottom: 2px solid var(--gold);
-  font-size: 0.9em;
-}
-
-td {
-  padding: 10px 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  color: var(--ink-medium);
-}
-
-tbody tr { transition: background 0.2s ease; }
-tbody tr:hover { background: rgba(192, 59, 59, 0.04); }
-
-/* ==========================================
-   SIDEBAR
-   ========================================== */
-.VPSidebar {
-  background: var(--vp-c-bg) !important;
-  border-right: 1px solid var(--vp-c-divider);
-}
-
-.VPSidebarItem .item .link {
   border-radius: 3px;
-  transition: all 0.2s ease;
-  padding: 8px 12px !important;
-}
-
-.VPSidebarItem .item .link:hover {
-  background: rgba(192, 59, 59, 0.06);
-}
-
-.VPSidebarItem.is-active .link {
-  background: rgba(192, 59, 59, 0.08) !important;
-  border-right: 3px solid var(--vermillion);
-}
-
-/* ==========================================
-   CUSTOM BLOCKS
-   ========================================== */
-.custom-block {
-  border-radius: 4px;
-  border-left: 3px solid var(--jade);
-  padding: 20px 24px;
+  overflow: hidden;
   margin: 20px 0;
 }
 
-.custom-block.tip { background: rgba(91, 140, 90, 0.06); border-color: var(--jade); }
-.custom-block.warning { background: rgba(196, 168, 75, 0.08); border-color: var(--gold); }
-.custom-block.danger { background: rgba(192, 59, 59, 0.06); border-color: var(--vermillion); }
-.custom-block.info { background: rgba(91, 140, 90, 0.04); border-color: var(--jade-light); }
+thead { background: var(--ink-heavy); }
+th {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--gold-light);
+  padding: 10px 16px;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--gold);
+  font-size: 0.88em;
+}
 
-/* ==========================================
-   TAG CLOUD
-   ========================================== */
-.tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0; }
+td {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  color: var(--ink-medium);
+}
+
+tbody tr { transition: background 0.2s; }
+tbody tr:hover { background: rgba(192,59,59,0.03); }
+
+/* =========================================================
+   14. SIDEBAR
+   ========================================================= */
+.VPSidebar { background: var(--vp-c-bg) !important; }
+.VPSidebarItem .item .link {
+  border-radius: 2px;
+  transition: all 0.2s;
+  padding: 6px 12px !important;
+}
+.VPSidebarItem .item .link:hover { background: rgba(192,59,59,0.05); }
+.VPSidebarItem.is-active .link {
+  background: rgba(192,59,59,0.07) !important;
+  border-right: 3px solid var(--vermillion);
+}
+
+/* =========================================================
+   15. CUSTOM BLOCKS
+   ========================================================= */
+.custom-block {
+  border-radius: 3px;
+  border-left: 3px solid var(--jade);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.custom-block.tip { background: rgba(91,140,90,0.05); border-color: var(--jade); }
+.custom-block.warning { background: rgba(196,168,75,0.06); border-color: var(--gold); }
+.custom-block.danger { background: rgba(192,59,59,0.05); border-color: var(--vermillion); }
+.custom-block.info { background: rgba(91,140,90,0.03); border-color: var(--jade-light); }
+
+/* =========================================================
+   16. TAGS & BADGES
+   ========================================================= */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 0; }
 
 .tag-item {
-  display: inline-block;
-  padding: 4px 16px;
-  border: 1px solid rgba(196, 168, 75, 0.25);
-  border-radius: 3px;
-  font-size: 0.85em;
   font-family: var(--font-display);
-  letter-spacing: 0.05em;
+  font-size: 0.8em;
+  letter-spacing: 0.04em;
+  padding: 3px 14px;
+  border: 1px solid rgba(196,168,75,0.2);
+  border-radius: 2px;
   color: var(--ink-light);
-  transition: all 0.35s ease;
+  transition: all 0.3s;
   cursor: default;
 }
 
@@ -816,140 +847,119 @@ tbody tr:hover { background: rgba(192, 59, 59, 0.04); }
   background: var(--vermillion);
   color: var(--rice-paper);
   border-color: var(--vermillion);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(192, 59, 59, 0.25);
+  transform: translateY(-1px);
 }
 
-/* ==========================================
-   CATEGORY CARD
-   ========================================== */
+.featured-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7em;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--vermillion);
+  color: var(--vermillion);
+  padding: 3px 12px;
+}
+
+/* =========================================================
+   17. CATEGORY CARDS
+   ========================================================= */
 .category-card {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 22px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
+  padding: 12px 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 3px;
   background: var(--rice-paper);
-  transition: all 0.35s ease;
-  cursor: default;
-  margin: 4px;
+  transition: all 0.3s;
   font-family: var(--font-display);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  cursor: default;
 }
 
 .category-card:hover {
   border-color: var(--vermillion);
-  box-shadow: 0 4px 20px rgba(192, 59, 59, 0.08);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(192,59,59,0.06);
 }
 
-/* ==========================================
-   FEATURED BADGE
-   ========================================== */
-.featured-badge {
-  display: inline-block;
-  padding: 4px 14px;
-  font-family: var(--font-display);
-  letter-spacing: 0.08em;
-  font-size: 0.75em;
-  border: 1px solid var(--vermillion);
-  color: var(--vermillion);
-  background: transparent;
-}
-
-/* ==========================================
-   IMAGES — 水墨风格
-   ========================================== */
+/* =========================================================
+   18. IMAGES
+   ========================================================= */
 img {
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 3px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 img:hover {
   transform: scale(1.01);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+/* =========================================================
+   19. FOOTER
+   ========================================================= */
 .VPFooter {
   position: relative;
   background: var(--parchment-dark) !important;
   color: var(--ink-medium) !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 40px 0 24px;
-  margin-top: 48px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  padding: 32px 0 20px;
+  margin-top: 40px;
 }
 
 .dark .VPFooter {
   background: linear-gradient(0deg, var(--mortal-bg-deeper), var(--mortal-bg-dark)) !important;
   color: var(--parchment) !important;
-  border-top: 1px solid rgba(196, 168, 75, 0.06);
+  border-top: 1px solid rgba(196,168,75,0.04);
 }
 
 .VPFooter .footer-message {
   font-family: var(--font-display);
-  letter-spacing: 0.08em;
-  font-size: 0.9em;
-  opacity: 0.8;
+  letter-spacing: 0.06em;
+  font-size: 0.88em;
+  opacity: 0.7;
 }
 
-.VPFooter .footer-message a {
-  color: var(--vermillion) !important;
-}
+.VPFooter .footer-message a { color: var(--vermillion) !important; }
+.VPFooter .footer-message a:hover { color: var(--ink-full) !important; }
+.dark .VPFooter .footer-message a { color: var(--gold) !important; }
+.dark .VPFooter .footer-message a:hover { color: var(--rice-paper) !important; }
 
-.VPFooter .footer-message a:hover {
-  color: var(--ink-full) !important;
-}
-
-.dark .VPFooter .footer-message a {
-  color: var(--gold) !important;
-}
-
-.dark .VPFooter .footer-message a:hover {
-  color: var(--rice-paper) !important;
-}
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* =========================================================
+   20. RESPONSIVE
+   ========================================================= */
 @media (max-width: 960px) {
   .VPHomeHero { min-height: 60vh; }
-  .VPHomeHero .name { font-size: 2.6em !important; }
-  .VPHomeHero .text { font-size: 1em !important; letter-spacing: 0.4em; }
-  .VPContent .VPDoc .content-container { padding: 28px 24px; }
+  .VPHomeHero .name { font-size: 2.4em !important; }
+  .VPHomeHero .text { font-size: 1em !important; letter-spacing: 0.25em; }
+  .VPContent .VPDoc .content-container { padding: 24px 20px; }
 }
 
 @media (max-width: 640px) {
   .VPHomeHero { min-height: 50vh; background-attachment: scroll; }
-  .VPHomeHero .name { font-size: 1.8em !important; letter-spacing: 0.1em; }
-  .VPHomeHero .text { font-size: 0.85em !important; letter-spacing: 0.3em; }
-  .VPHomeHero .tagline { font-size: 0.85em !important; }
-  .VPContent .VPDoc .content-container { padding: 16px; }
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.3em; }
-  .VPHomeFeatures .VPFeature { padding: 24px 20px; }
-  .tag-item { font-size: 0.8em; padding: 3px 12px; }
-  .category-card { padding: 10px 16px; font-size: 0.85em; }
+  .VPHomeHero .name { font-size: 1.7em !important; letter-spacing: 0.08em; }
+  .VPHomeHero .text { font-size: 0.82em !important; letter-spacing: 0.2em; }
+  .VPHomeHero .tagline { font-size: 0.8em !important; }
+  .VPContent .VPDoc .content-container { padding: 14px 12px; }
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.2em; }
+  .VPHomeFeatures .VPFeature { padding: 20px 16px; }
+  .tag-item { font-size: 0.75em; padding: 2px 10px; }
+  .category-card { padding: 8px 14px; font-size: 0.82em; }
 }
 
-/* ==========================================
-   PRINT
-   ========================================== */
+/* =========================================================
+   21. PRINT
+   ========================================================= */
 @media print {
   .VPNavBar::before,
-  .VPHomeHero::before,
-  .dark::before,
-  .VPNavBar::before,
-  .VPHomeHero::before { display: none !important; }
+  .dark::before { display: none !important; }
+  .VPHomeHero { background: none !important; min-height: auto; }
   .VPHomeHero .name { color: #000 !important; text-shadow: none !important; }
   .VPContent .VPDoc .content-container {
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0 !important;
+    box-shadow: none !important; border: none !important; padding: 0 !important;
   }
   .VPContent .VPDoc .content-container::before { display: none; }
 }
