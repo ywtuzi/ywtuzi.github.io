@@ -2,3 +2,5 @@ node_modules/
 dist/
 .vitepress/cache/
 .vitepress/dist/
+public/admin/
+public/images/
