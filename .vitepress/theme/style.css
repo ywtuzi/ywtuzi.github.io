@@ -1,214 +1,262 @@
 /* ========================================
-   凡人修仙传 — 青墨修仙 Theme v3
-   Inspired by modern blog design trends:
-   - Glassmorphism navigation
-   - Dynamic starry background
-   - Micro-interactions
-   - Premium typography
+   凡人修仙传 — 青墨修仙 Theme v4
+   Inspired by fanren-website.pages.dev
+   Design philosophy:
+   - 中国传统美学: 宣纸 · 水墨 · 朱砂 · 鎏金
+   - 文人气息: 留白 · 印章 · 笔触
+   - 修仙意境: 星河 · 云雾 · 剑意
    ======================================== */
 
+/* Google Fonts 导入 */
+@import "https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@300;400;500&display=swap";
+
 :root {
-  /* ---- Core palette ---- */
+  /* ---- 中国传统色系 ---- */
+  --ink-full: #0d0d0d;
+  --ink-heavy: #1a1a1a;
+  --ink-medium: #3d3d3d;
+  --ink-light: #6b6b6b;
+  --ink-faint: #a0a0a0;
+  --vermillion: #c03b3b;
+  --vermillion-dark: #8b1a1a;
+  --gold: #c4a84b;
+  --gold-light: #e8d48b;
+  --jade: #5b8c5a;
+  --jade-light: #7aaa7a;
+  --celadon: #b5c9b0;
+  --parchment: #f5f0e8;
+  --parchment-dark: #e8dfd0;
+  --rice-paper: #fafaf7;
   --mortal-bg-dark: #0a1420;
   --mortal-bg-deeper: #060e16;
-  --mortal-jade-green: #2d8a4e;
-  --mortal-jade-light: #3aa85e;
-  --mortal-gold: #c9a84c;
-  --mortal-gold-light: #e0c56a;
-  --mortal-cloud-white: #e8e4d9;
-  --mortal-paper: #f0ece0;
-  --mortal-purple: #8b5cf6;
-  --mortal-ink: #c8c4b9;
-  --mortal-red: #c43a31;
 
-  /* ---- Four-color vortex ---- */
-  --vortex-red: #c43a31;
-  --vortex-cyan: #38bdf8;
-  --vortex-yellow: #f5d742;
-  --vortex-blue: #3b82f6;
+  /* ---- Semantic VitePress aliases (light) ---- */
+  --vp-c-bg: var(--parchment);
+  --vp-c-bg-alt: #efe9de;
+  --vp-c-bg-elv: var(--rice-paper);
+  --vp-c-bg-soft: #f0ece0;
+  --vp-c-text: var(--ink-medium);
+  --vp-c-text-1: var(--ink-heavy);
+  --vp-c-text-2: var(--ink-light);
+  --vp-c-brand: var(--jade);
+  --vp-c-brand-light: var(--jade-light);
+  --vp-c-brand-dark: #4a7a4a;
+  --vp-c-divider: rgba(0, 0, 0, 0.08);
+  --vp-c-gutter: rgba(0, 0, 0, 0.04);
+  --vp-code-bg: #1e2a36;
+  --vp-code-color: #e8e4d9;
+  --vp-code-block-bg: #0a121c;
+  --vp-blockquote-bg: rgba(91, 140, 90, 0.08);
 
-  /* ---- Starry deep sea ---- */
-  --starry-deep: #0c1a2e;
-  --starry-mid: #132642;
-  --starry-light: #1a3355;
-
-  /* ---- Glassmorphism ---- */
-  --glass-bg: rgba(10, 20, 32, 0.6);
-  --glass-border: rgba(201, 168, 76, 0.12);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
-
-  /* ---- Semantic aliases ---- */
-  --vp-c-bg: var(--mortal-cloud-white);
-  --vp-c-bg-alt: #f5f2ea;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #f0ede3;
-  --vp-c-text: #2c3e50;
-  --vp-c-text-1: #1a2a3a;
-  --vp-c-text-2: #5a6a7a;
-  --vp-c-brand: var(--mortal-jade-green);
-  --vp-c-brand-light: var(--mortal-jade-light);
-  --vp-c-brand-dark: #22703e;
-  --vp-c-divider: rgba(201, 168, 76, 0.2);
-  --vp-c-gutter: rgba(201, 168, 76, 0.08);
-
-  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'Noto Sans SC', system-ui, sans-serif;
+  /* ---- Fonts ---- */
+  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* ---- Custom display font ---- */
+  --font-display: 'Ma Shan Zheng', 'ZCOOL KuaiLe', 'Noto Serif SC', serif;
+  --font-body: 'Noto Serif SC', 'Source Han Serif SC', serif;
+
+  /* ---- Spaces ---- */
+  --space-section: 4rem;
 }
 
 /* ==========================================
-   Dark theme base
+   DARK THEME — 星河深空
    ========================================== */
 .dark {
   --vp-c-bg: var(--mortal-bg-dark);
   --vp-c-bg-alt: #0c1a2e;
-  --vp-c-bg-elv: rgba(15, 31, 53, 0.85);
+  --vp-c-bg-elv: rgba(15, 25, 35, 0.85);
   --vp-c-bg-soft: rgba(10, 20, 32, 0.9);
   --vp-c-text: #d0ccc0;
-  --vp-c-text-1: var(--mortal-cloud-white);
+  --vp-c-text-1: var(--parchment);
   --vp-c-text-2: #9a968a;
   --vp-c-divider: rgba(201, 168, 76, 0.12);
-  --vp-c-brand: var(--mortal-jade-green);
-  --vp-c-brand-light: var(--mortal-jade-light);
+  --vp-c-brand: var(--jade);
+  --vp-c-brand-light: var(--jade-light);
   --vp-code-bg: rgba(26, 37, 51, 0.8);
   --vp-code-block-bg: #060e16;
-  --vp-blockquote-bg: rgba(45, 138, 78, 0.1);
+  --vp-blockquote-bg: rgba(91, 140, 90, 0.1);
 }
 
 /* ==========================================
-   Dynamic starry background
+   BASE STYLES
    ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--parchment);
+  color: var(--ink-full);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  line-height: 1.8;
+  overflow-x: hidden;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+}
+
+.dark body,
+.dark {
+  background-image: none;
+}
+
 .dark::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    /* Star field */
-    radial-gradient(1px 1px at 10% 5%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.5px 1.5px at 25% 15%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 10% 5%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1.5px 1.5px at 25% 15%, rgba(255,255,255,0.35), transparent),
     radial-gradient(1px 1px at 50% 8%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 75% 12%, rgba(255,255,255,0.35), transparent),
-    radial-gradient(1.5px 1.5px at 90% 20%, rgba(255,255,255,0.25), transparent),
-    radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 35% 25%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.5px 1.5px at 60% 35%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1.5px 1.5px at 20% 60%, rgba(255,255,255,0.15), transparent),
-    radial-gradient(1px 1px at 85% 65%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.15), transparent),
-    /* Aurora glow */
-    radial-gradient(ellipse at 20% 80%, rgba(45, 138, 78, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
+    radial-gradient(1px 1px at 75% 12%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 90% 20%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 35% 25%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 60% 35%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 80% 28%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1.5px 1.5px at 20% 60%, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 85% 65%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(ellipse at 30% 80%, rgba(91, 140, 90, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 20%, rgba(196, 168, 75, 0.04) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
-  animation: starTwinkle 8s ease-in-out infinite alternate;
 }
 
-@keyframes starTwinkle {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; }
+img { max-width: 100%; height: auto; }
+ul, ol { list-style: none; padding: 0; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--vp-c-text-1);
 }
 
 /* ==========================================
-   Selection
+   SCROLLBAR
    ========================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment-dark); }
+::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-light); }
+
+.dark ::-webkit-scrollbar-track { background: var(--mortal-bg-dark); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 76, 0.5); }
+
 ::selection {
-  background: rgba(45, 138, 78, 0.35);
-  color: var(--mortal-cloud-white);
+  background: var(--vermillion);
+  color: var(--rice-paper);
 }
 
 /* ==========================================
-   Scrollbar — 青竹风格
+   ANIMATIONS
    ========================================== */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--mortal-jade-green), rgba(45, 138, 78, 0.2));
-  border-radius: 3px;
+@keyframes scrollReveal {
+  0% { opacity: 0; filter: blur(3px); transform: translateY(30px); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
-::-webkit-scrollbar-thumb:hover { background: var(--mortal-jade-light); }
 
-html {
-  scrollbar-color: var(--mortal-jade-green) transparent;
-  scrollbar-width: thin;
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sealStamp {
+  0% { opacity: 0; transform: scale(1.6) rotate(-12deg); }
+  60% { opacity: 1; transform: scale(0.95) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes brushSweep {
+  0% { transform-origin: 0; transform: scaleX(0); }
+  100% { transform-origin: 0; transform: scaleX(1); }
+}
+
+@keyframes inkDrop {
+  0% { height: 0; opacity: 0; }
+  80% { height: var(--drip-h, 40px); opacity: 1; }
+  100% { height: var(--drip-h, 40px); opacity: 0.6; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 /* ==========================================
-   GLASSMORPHISM NAVIGATION BAR
+   GLASSMORPHISM NAVIGATION
    ========================================== */
-.VPNav {
-  position: sticky !important;
-  top: 0;
-  z-index: 100;
-}
-
 .VPNavBar {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(20px) saturate(1.5) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
-  border-bottom: 1px solid var(--glass-border) !important;
-  box-shadow: 0 1px 20px var(--glass-shadow);
+  background: rgba(245, 240, 232, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.3) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
 }
 
-/* Navigation content wrapper */
+.dark .VPNavBar {
+  background: rgba(10, 20, 32, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(1.5) !important;
+  border-bottom: 1px solid rgba(196, 168, 75, 0.1) !important;
+}
+
 .VPNavBar .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Logo / site title */
-.VPNavBarTitle {
-  font-family: var(--vp-font-family-base);
-}
-
+/* Logo — 朱砂印风格 */
 .VPNavBarTitle .title {
+  font-family: var(--font-display) !important;
+  color: var(--ink-full) !important;
+  font-size: 1.3em !important;
+  letter-spacing: 0.15em;
   position: relative;
-  display: inline-block;
-  color: var(--mortal-gold) !important;
-  font-weight: 700;
-  font-size: 1.1em;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 12px rgba(201, 168, 76, 0.2);
   padding: 0 4px;
-  transition: text-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.VPNavBarTitle .title:hover {
-  text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+.dark .VPNavBarTitle .title {
+  color: var(--gold) !important;
+  text-shadow: 0 0 12px rgba(196, 168, 75, 0.2);
 }
 
-/* Seal stamp border */
 .VPNavBarTitle .title::after {
   content: '';
   position: absolute;
-  inset: -3px -8px;
-  border: 1.5px solid rgba(201, 168, 76, 0.3);
+  inset: -2px -8px;
+  border: 1.5px solid var(--vermillion);
   border-radius: 3px;
-  opacity: 0.6;
+  opacity: 0.4;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .VPNavBarTitle .title:hover::after {
-  opacity: 1;
-  border-color: rgba(201, 168, 76, 0.5);
+  opacity: 0.7;
 }
 
-/* Navigation links — elegant underline effect */
+/* Nav links — 毛笔字风格 */
 .VPNavBarMenuLink {
+  font-family: var(--font-display) !important;
+  color: var(--ink-medium) !important;
+  letter-spacing: 0.08em;
+  font-size: 1.05em !important;
+  padding: 8px 14px !important;
+  margin: 0 2px;
   position: relative;
-  color: var(--mortal-cloud-white) !important;
-  opacity: 0.75;
-  padding: 8px 0 !important;
-  margin: 0 12px;
-  font-size: 0.9em;
-  letter-spacing: 0.04em;
-  transition: all 0.3s ease !important;
-  text-decoration: none !important;
+  transition: color 0.3s ease !important;
 }
 
 .VPNavBarMenuLink::after {
@@ -218,88 +266,61 @@ html {
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
+  background: var(--vermillion);
   transition: all 0.3s ease;
   transform: translateX(-50%);
   border-radius: 2px;
 }
 
 .VPNavBarMenuLink:hover {
-  opacity: 1 !important;
-  color: var(--mortal-gold) !important;
-  text-shadow: 0 0 8px rgba(201, 168, 76, 0.15);
+  color: var(--vermillion) !important;
 }
 
 .VPNavBarMenuLink:hover::after {
-  width: 60%;
+  width: 70%;
 }
 
 .VPNavBarMenuLink.active {
-  opacity: 1 !important;
-  color: var(--mortal-gold) !important;
+  color: var(--vermillion) !important;
 }
 
 .VPNavBarMenuLink.active::after {
   width: 80%;
 }
 
-/* Flying sword decoration — subtle animation */
+/* Flying sword — 更柔和的动画 */
 .VPNavBar::before {
   content: '🗡️';
   position: absolute;
   left: 50%;
-  bottom: -8px;
+  bottom: -7px;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 12px;
   animation: swordFloat 4s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.25;
   z-index: 10;
-  filter: drop-shadow(0 0 4px rgba(45, 138, 78, 0.2));
+  filter: drop-shadow(0 0 3px rgba(91, 140, 90, 0.15));
 }
 
 @keyframes swordFloat {
-  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-6deg); opacity: 0.25; }
-  25% { transform: translateX(-50%) translateY(-4px) rotate(-2deg); opacity: 0.45; }
-  50% { transform: translateX(-50%) translateY(-1px) rotate(4deg); opacity: 0.35; }
-  75% { transform: translateX(-50%) translateY(-5px) rotate(0deg); opacity: 0.4; }
-}
-
-/* Social link icon */
-.VPNavBarSocialLinks .icon {
-  color: var(--mortal-cloud-white) !important;
-  opacity: 0.6;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.VPNavBarSocialLinks .icon:hover {
-  opacity: 1;
-  transform: translateY(-2px);
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg); opacity: 0.2; }
+  25% { transform: translateX(-50%) translateY(-3px) rotate(-1deg); opacity: 0.35; }
+  50% { transform: translateX(-50%) translateY(0) rotate(3deg); opacity: 0.25; }
+  75% { transform: translateX(-50%) translateY(-4px) rotate(0deg); opacity: 0.3; }
 }
 
 /* ==========================================
-   HERO SECTION — Cinematic experience
+   HERO SECTION — 星河背景 + 水墨意境
    ========================================== */
 .VPHomeHero {
   position: relative;
   overflow: hidden;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(160deg,
-    var(--mortal-bg-deeper) 0%,
-    var(--mortal-bg-dark) 25%,
-    var(--starry-deep) 50%,
-    var(--starry-mid) 75%,
-    var(--mortal-bg-dark) 100%
-  );
-}
-
-/* Animated gradient overlay */
-.VPHomeHero .container {
-  position: relative;
-  z-index: 2;
-  padding: 80px 0;
+  background:
+    url(/images/galaxy-bg.jpg) center/cover no-repeat fixed;
 }
 
 .VPHomeHero::before {
@@ -307,136 +328,153 @@ html {
   position: absolute;
   inset: 0;
   background:
-    /* Mountain silhouette */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232d8a4e' opacity='0.05' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,149.3C960,139,1056,149,1152,154.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E") no-repeat bottom / contain,
-    /* Animated gradient sweep */
-    linear-gradient(135deg, transparent 0%, rgba(45, 138, 78, 0.04) 25%, transparent 50%, rgba(201, 168, 76, 0.03) 75%, transparent 100%);
-  background-size: contain, 200% 200%;
+    /* 渐暗遮罩 */
+    linear-gradient(180deg,
+      rgba(5, 5, 16, 0.3) 0%,
+      rgba(5, 5, 16, 0.5) 40%,
+      rgba(5, 5, 16, 0.7) 70%,
+      rgba(5, 5, 16, 0.9) 100%
+    ),
+    /* 朱砂红晕 */
+    radial-gradient(ellipse at 30% 40%, rgba(192, 59, 59, 0.08) 0%, transparent 50%),
+    /* 金色光晕 */
+    radial-gradient(ellipse at 70% 60%, rgba(196, 168, 75, 0.06) 0%, transparent 50%);
   pointer-events: none;
-  animation: gradientSweep 15s ease-in-out infinite;
 }
 
-@keyframes gradientSweep {
-  0%, 100% { background-position: 0% 100%, 0% 50%; }
-  50% { background-position: 0% 100%, 100% 50%; }
+.VPHomeHero .container {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
 }
 
-/* Hero name */
+/* 标题 — 朱砂大字 */
 .VPHomeHero .name {
-  color: var(--mortal-gold) !important;
-  font-size: 3.2em !important;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--font-display) !important;
+  color: var(--rice-paper) !important;
+  font-size: 3.6em !important;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   text-shadow:
-    0 0 20px rgba(201, 168, 76, 0.25),
-    0 0 40px rgba(201, 168, 76, 0.1);
+    0 0 40px rgba(192, 59, 59, 0.3),
+    0 0 80px rgba(196, 168, 75, 0.15);
   margin-bottom: 8px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .VPHomeHero .text {
-  font-size: 1.3em !important;
+  color: var(--gold-light) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.2em !important;
+  letter-spacing: 0.6em;
   opacity: 0.9;
-  letter-spacing: 0.05em;
-  line-height: 1.6;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .VPHomeHero .tagline {
-  color: var(--mortal-cloud-white) !important;
-  opacity: 0.7;
-  font-style: italic;
-  font-size: 1.05em !important;
-  letter-spacing: 0.03em;
-  margin-top: 12px;
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1em !important;
+  letter-spacing: 0.08em;
+  margin-top: 16px;
+  max-width: 520px;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-/* Hero image */
-.VPHomeHero .image {
-  animation: heroFloat 6s ease-in-out infinite;
+/* Hero divider — 朱砂点 + 金线 */
+.VPHomeHero .tagline::before,
+.VPHomeHero .tagline::after {
+  content: '';
+  display: block;
+  margin: 16px auto 16px 0;
 }
 
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* Hero action buttons */
+/* Action buttons */
 .VPHomeHero .actions {
-  margin-top: 32px;
+  margin-top: 36px;
   gap: 16px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .VPHomeHero .actions .action .item {
-  border-radius: 8px;
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+  border-radius: 4px;
   padding: 12px 28px;
-  font-size: 0.95em;
-  letter-spacing: 0.04em;
+  font-size: 1em;
   transition: all 0.3s ease !important;
-  position: relative;
-  overflow: hidden;
 }
 
 .VPHomeHero .actions .action .item.brand {
-  background: linear-gradient(135deg, var(--mortal-jade-green), var(--mortal-jade-light)) !important;
+  background: var(--vermillion) !important;
   color: #fff !important;
-  box-shadow: 0 4px 16px rgba(45, 138, 78, 0.3);
+  box-shadow: 0 4px 20px rgba(192, 59, 59, 0.3);
 }
 
 .VPHomeHero .actions .action .item.brand:hover {
+  background: var(--vermillion-dark) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(45, 138, 78, 0.4);
+  box-shadow: 0 8px 30px rgba(192, 59, 59, 0.4);
 }
 
 .VPHomeHero .actions .action .item.alt {
   background: rgba(255, 255, 255, 0.08) !important;
-  color: var(--mortal-cloud-white) !important;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  backdrop-filter: blur(8px);
+  color: var(--rice-paper) !important;
+  border: 1px solid rgba(196, 168, 75, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 .VPHomeHero .actions .action .item.alt:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: var(--mortal-gold);
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: var(--gold);
   transform: translateY(-2px);
 }
 
 /* ==========================================
-   FEATURE CARDS — Premium glass design
+   SCROLL REVEAL — 通用滚动动画
+   ========================================== */
+.scroll-reveal {
+  opacity: 0;
+  animation: scrollReveal 0.8s ease-out forwards;
+}
+
+/* ==========================================
+   FEATURE CARDS — 宣纸卡片
    ========================================== */
 .VPHomeFeatures {
   padding: 48px 0;
 }
 
 .VPHomeFeatures .VPFeature {
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  background: var(--vp-c-bg-elv);
+  background: var(--rice-paper);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
   padding: 32px 28px;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
+/* 朱砂红线 — 悬停时从顶滑下 */
 .VPHomeFeatures .VPFeature::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold), var(--mortal-jade-green));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.VPHomeFeatures .VPFeature:hover {
-  border-color: rgba(45, 138, 78, 0.3);
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  width: 3px;
+  height: 0;
+  background: var(--vermillion);
+  transition: height 0.4s ease;
 }
 
 .VPHomeFeatures .VPFeature:hover::before {
-  opacity: 0.8;
+  height: 100%;
+}
+
+.VPHomeFeatures .VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
 }
 
 .VPHomeFeatures .VPFeature .icon {
@@ -445,32 +483,35 @@ html {
 }
 
 .VPHomeFeatures .VPFeature .title {
-  font-size: 1.15em;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
+  font-family: var(--font-display);
+  font-size: 1.2em;
+  letter-spacing: 0.06em;
+  color: var(--ink-heavy);
+  font-weight: 400;
   margin-bottom: 8px;
 }
 
 .VPHomeFeatures .VPFeature .details {
+  font-family: var(--font-body);
   font-size: 0.9em;
-  color: var(--vp-c-text-2);
+  color: var(--ink-light);
   line-height: 1.7;
 }
 
 /* ==========================================
-   CONTENT AREA — Premium reading experience
+   CONTENT AREA — 宣纸文章区
    ========================================== */
 .VPContent .VPDoc .content-container {
-  background: var(--vp-c-bg-elv);
-  border-radius: 16px;
+  background: var(--rice-paper);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
   padding: 40px 48px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   position: relative;
-  overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Top accent line */
+/* 顶部朱砂线 */
 .VPContent .VPDoc .content-container::before {
   content: '';
   position: absolute;
@@ -478,101 +519,106 @@ html {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
-  opacity: 0.5;
+  background: linear-gradient(90deg, var(--vermillion), var(--gold), transparent);
+  opacity: 0.6;
 }
 
 .dark .VPContent .VPDoc .content-container {
-  background: var(--vp-c-bg-elv);
+  background: rgba(15, 25, 35, 0.85);
+  border: 1px solid rgba(196, 168, 75, 0.08);
   backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================
-   TYPOGRAPHY — Refined hierarchy
+   TYPOGRAPHY — 文人排版
    ========================================== */
-body {
-  font-feature-settings: 'kern' 1, 'liga' 1;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--vp-c-text-1);
-  font-weight: 600;
-  line-height: 1.4;
-}
-
 h1 {
-  font-size: 2em;
+  font-family: var(--font-display);
+  font-size: 2.2em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   border-bottom: none;
-  padding-bottom: 8px;
+  padding-bottom: 0;
   margin-bottom: 28px;
   position: relative;
-  letter-spacing: 0.02em;
+  color: var(--ink-heavy);
 }
 
 h1::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -8px;
   left: 0;
   width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--mortal-jade-green), var(--mortal-gold));
-  border-radius: 2px;
+  height: 2px;
+  background: var(--vermillion);
 }
 
 h2 {
-  border-left: 4px solid var(--mortal-jade-green);
+  font-family: var(--font-display);
+  font-size: 1.6em;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  border-left: 3px solid var(--vermillion);
   padding-left: 16px;
   margin-top: 40px;
   margin-bottom: 16px;
-  letter-spacing: 0.01em;
+  color: var(--ink-heavy);
 }
 
 h3 {
-  color: var(--mortal-gold);
+  font-family: var(--font-display);
+  font-size: 1.3em;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  color: var(--jade);
   margin-top: 32px;
   margin-bottom: 12px;
 }
 
-h4 {
-  font-size: 1.05em;
-  color: var(--mortal-jade-green);
-}
-
-p {
-  line-height: 1.8;
-  margin: 12px 0;
-}
-
-/* Links */
+/* 链接 — 朱砂色 + 毛笔悬停 */
 a {
-  color: var(--mortal-jade-green);
+  color: var(--jade);
   transition: all 0.25s ease;
-  text-decoration: none;
 }
 
 a:hover {
-  color: var(--mortal-gold);
-  text-decoration: underline;
+  color: var(--vermillion);
+  text-decoration: none;
+}
+
+/* 毛笔下划线效果 */
+.content-container a:not(.header-anchor):not(.nav-link):not(.category-card) {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(91, 140, 90, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.content-container a:not(.header-anchor):not(.nav-link):not(.category-card):hover {
+  border-bottom-color: var(--vermillion);
+}
+
+/* 段落 */
+p {
+  line-height: 1.9;
+  margin: 12px 0;
+  color: var(--ink-medium);
 }
 
 /* ==========================================
-   BLOCKQUOTE
+   BLOCKQUOTE — 朱砂引文
    ========================================== */
 blockquote {
   position: relative;
-  border-left: 3px solid var(--mortal-jade-green);
+  border-left: 3px solid var(--vermillion);
   background: var(--vp-blockquote-bg);
   margin: 24px 0;
   padding: 20px 24px 20px 48px;
-  border-radius: 0 12px 12px 0;
+  border-radius: 0;
   font-style: italic;
-  color: var(--vp-c-text-2);
+  color: var(--ink-light);
   font-size: 0.95em;
   line-height: 1.8;
 }
@@ -583,18 +629,16 @@ blockquote::before {
   left: 16px;
   top: 18px;
   font-size: 16px;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
-/* ==========================================
-   HORIZONTAL RULE
-   ========================================== */
+/* HORIZONTAL RULE */
 hr {
   position: relative;
   border: none;
   height: 1px;
   margin: 40px 0;
-  background: linear-gradient(90deg, transparent, rgba(45, 138, 78, 0.2), rgba(201, 168, 76, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, var(--ink-faint), transparent);
 }
 
 hr::after {
@@ -606,165 +650,139 @@ hr::after {
   font-size: 12px;
   background: var(--vp-c-bg);
   padding: 0 20px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.dark hr::after {
-  background: var(--vp-c-bg);
-}
+.dark hr::after { background: var(--vp-c-bg); }
 
 /* ==========================================
    CODE BLOCKS
    ========================================== */
 div[class*='language-'] {
   background: #060e16 !important;
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  border-radius: 12px;
+  border: 1px solid rgba(196, 168, 75, 0.1);
+  border-radius: 4px;
   margin: 24px 0;
   overflow: hidden;
 }
 
 div[class*='language-']::before {
-  color: var(--mortal-gold) !important;
+  color: var(--gold) !important;
   opacity: 0.5;
   font-size: 0.8em;
   letter-spacing: 0.05em;
 }
 
 code {
-  color: var(--mortal-cloud-white);
-  background: var(--vp-code-bg);
+  color: var(--parchment);
+  background: rgba(0, 0, 0, 0.1);
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-size: 0.875em;
 }
 
+.dark code {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* ==========================================
-   TABLES
+   TABLES — 宗门谱牒
    ========================================== */
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin: 24px 0;
 }
 
 thead {
-  background: linear-gradient(135deg, var(--starry-deep), var(--starry-mid));
+  background: var(--ink-heavy);
+  color: var(--gold-light);
 }
 
 th {
-  padding: 14px 20px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--mortal-gold);
-  border-bottom: 2px solid var(--mortal-gold);
+  font-family: var(--font-display);
+  font-weight: 400;
+  padding: 12px 18px;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--gold);
   font-size: 0.9em;
 }
 
 td {
-  padding: 12px 20px;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-  color: var(--vp-c-text);
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--ink-medium);
 }
 
-tbody tr {
-  transition: background 0.2s ease;
-}
-
-tbody tr:hover {
-  background: rgba(45, 138, 78, 0.06);
-}
+tbody tr { transition: background 0.2s ease; }
+tbody tr:hover { background: rgba(192, 59, 59, 0.04); }
 
 /* ==========================================
    SIDEBAR
    ========================================== */
 .VPSidebar {
-  background: var(--vp-c-bg-alt) !important;
+  background: var(--vp-c-bg) !important;
   border-right: 1px solid var(--vp-c-divider);
 }
 
 .VPSidebarItem .item .link {
-  border-radius: 8px;
+  border-radius: 3px;
   transition: all 0.2s ease;
   padding: 8px 12px !important;
 }
 
 .VPSidebarItem .item .link:hover {
-  background: rgba(45, 138, 78, 0.08);
+  background: rgba(192, 59, 59, 0.06);
 }
 
 .VPSidebarItem.is-active .link {
-  background: rgba(45, 138, 78, 0.12) !important;
-  border-right: 3px solid var(--mortal-jade-green);
+  background: rgba(192, 59, 59, 0.08) !important;
+  border-right: 3px solid var(--vermillion);
 }
 
 /* ==========================================
    CUSTOM BLOCKS
    ========================================== */
 .custom-block {
-  border-radius: 12px;
-  border-left: 4px solid var(--mortal-jade-green);
+  border-radius: 4px;
+  border-left: 3px solid var(--jade);
   padding: 20px 24px;
   margin: 20px 0;
-  transition: box-shadow 0.3s ease;
 }
 
-.custom-block:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-.custom-block.tip {
-  background: rgba(45, 138, 78, 0.06);
-  border-color: var(--mortal-jade-green);
-}
-
-.custom-block.warning {
-  background: rgba(201, 168, 76, 0.08);
-  border-color: var(--mortal-gold);
-}
-
-.custom-block.danger {
-  background: rgba(196, 58, 49, 0.06);
-  border-color: var(--vortex-red);
-}
-
-.custom-block.info {
-  background: rgba(139, 92, 246, 0.06);
-  border-color: var(--mortal-purple);
-}
+.custom-block.tip { background: rgba(91, 140, 90, 0.06); border-color: var(--jade); }
+.custom-block.warning { background: rgba(196, 168, 75, 0.08); border-color: var(--gold); }
+.custom-block.danger { background: rgba(192, 59, 59, 0.06); border-color: var(--vermillion); }
+.custom-block.info { background: rgba(91, 140, 90, 0.04); border-color: var(--jade-light); }
 
 /* ==========================================
    TAG CLOUD
    ========================================== */
-.tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px 0;
-}
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0; }
 
 .tag-item {
   display: inline-block;
-  padding: 6px 18px;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  border-radius: 20px;
+  padding: 4px 16px;
+  border: 1px solid rgba(196, 168, 75, 0.25);
+  border-radius: 3px;
   font-size: 0.85em;
-  color: var(--vp-c-text-2);
-  background: transparent;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
   transition: all 0.35s ease;
   cursor: default;
 }
 
 .tag-item:hover {
-  background: linear-gradient(135deg, var(--mortal-gold), var(--mortal-gold-light));
-  color: #1a1a1a;
-  border-color: var(--mortal-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+  background: var(--vermillion);
+  color: var(--rice-paper);
+  border-color: var(--vermillion);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(192, 59, 59, 0.25);
 }
 
 /* ==========================================
@@ -773,20 +791,22 @@ tbody tr:hover {
 .category-card {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 24px;
-  border: 1px solid rgba(45, 138, 78, 0.15);
-  border-radius: 12px;
-  background: var(--vp-c-bg-soft);
+  gap: 8px;
+  padding: 14px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  background: var(--rice-paper);
   transition: all 0.35s ease;
   cursor: default;
   margin: 4px;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
 }
 
 .category-card:hover {
-  border-color: var(--mortal-jade-green);
-  box-shadow: 0 8px 28px rgba(45, 138, 78, 0.12);
-  transform: translateY(-4px);
+  border-color: var(--vermillion);
+  box-shadow: 0 4px 20px rgba(192, 59, 59, 0.08);
+  transform: translateY(-3px);
 }
 
 /* ==========================================
@@ -795,155 +815,90 @@ tbody tr:hover {
 .featured-badge {
   display: inline-block;
   padding: 4px 14px;
-  border-radius: 20px;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
   font-size: 0.75em;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  background: linear-gradient(135deg, var(--mortal-gold), var(--mortal-gold-light));
-  color: #1a1a1a;
-  box-shadow: 0 2px 10px rgba(201, 168, 76, 0.3);
+  border: 1px solid var(--vermillion);
+  color: var(--vermillion);
+  background: transparent;
 }
 
 /* ==========================================
-   IMAGE STYLING
+   IMAGES — 水墨风格
    ========================================== */
 img {
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  max-width: 100%;
-  height: auto;
 }
 
 img:hover {
   transform: scale(1.01);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================
-   FOOTER — Premium minimal
+   FOOTER
    ========================================== */
 .VPFooter {
   position: relative;
-  background: linear-gradient(0deg,
-    var(--mortal-bg-deeper) 0%,
-    var(--mortal-bg-dark) 60%,
-    var(--starry-deep) 100%
-  ) !important;
-  color: var(--mortal-cloud-white) !important;
-  border-top: 1px solid rgba(201, 168, 76, 0.08);
-  padding: 48px 0 32px;
+  background: var(--parchment-dark) !important;
+  color: var(--ink-medium) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 40px 0 24px;
   margin-top: 48px;
 }
 
-.VPFooter::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 30'%3E%3Cpath fill='%230a1420' opacity='0.6' d='M0,10L60,5C120,0,240,10,360,12C480,14,600,12,720,10C840,8,960,5,1080,7C1200,9,1320,12,1380,14L1440,15L1440,30L1380,30C1320,30,1200,30,1080,30C960,30,840,30,720,30C600,30,480,30,360,30C240,30,120,30,60,30L0,30Z'/%3E%3C/svg%3E") no-repeat top / cover;
-  pointer-events: none;
+.dark .VPFooter {
+  background: linear-gradient(0deg, var(--mortal-bg-deeper), var(--mortal-bg-dark)) !important;
+  color: var(--parchment) !important;
+  border-top: 1px solid rgba(196, 168, 75, 0.06);
 }
 
 .VPFooter .footer-message {
-  opacity: 0.7;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
   font-size: 0.9em;
-  letter-spacing: 0.02em;
+  opacity: 0.8;
 }
 
 .VPFooter .footer-message a {
-  color: var(--mortal-gold) !important;
-  transition: color 0.3s ease;
+  color: var(--vermillion) !important;
 }
 
 .VPFooter .footer-message a:hover {
-  color: var(--mortal-cloud-white) !important;
+  color: var(--ink-full) !important;
 }
 
-.VPFooter .footer-message .copyright {
-  opacity: 0.5;
-  font-size: 0.85em;
-  margin-top: 8px;
+.dark .VPFooter .footer-message a {
+  color: var(--gold) !important;
 }
 
-/* ==========================================
-   SCROLL ANIMATION
-   ========================================== */
-html {
-  scroll-behavior: smooth;
+.dark .VPFooter .footer-message a:hover {
+  color: var(--rice-paper) !important;
 }
 
 /* ==========================================
    RESPONSIVE
    ========================================== */
 @media (max-width: 960px) {
-  .VPHomeHero {
-    min-height: 60vh;
-  }
-
-  .VPHomeHero .name {
-    font-size: 2.4em !important;
-  }
-
-  .VPHomeHero .text {
-    font-size: 1.1em !important;
-  }
-
-  .VPContent .VPDoc .content-container {
-    padding: 24px 20px;
-    border-radius: 12px;
-  }
+  .VPHomeHero { min-height: 60vh; }
+  .VPHomeHero .name { font-size: 2.6em !important; }
+  .VPHomeHero .text { font-size: 1em !important; letter-spacing: 0.4em; }
+  .VPContent .VPDoc .content-container { padding: 28px 24px; }
 }
 
 @media (max-width: 640px) {
-  .VPHomeHero {
-    min-height: 50vh;
-  }
-
-  .VPHomeHero .name {
-    font-size: 1.8em !important;
-  }
-
-  .VPHomeHero .text {
-    font-size: 1em !important;
-  }
-
-  .VPHomeHero .tagline {
-    font-size: 0.9em !important;
-  }
-
-  .VPContent .VPDoc .content-container {
-    padding: 16px;
-    border-radius: 8px;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  .VPHomeFeatures .VPFeature {
-    padding: 24px 20px;
-  }
-
-  .VPHomeFeatures .VPFeature .title {
-    font-size: 1em;
-  }
-
-  .tag-cloud {
-    gap: 6px;
-  }
-
-  .tag-item {
-    font-size: 0.8em;
-    padding: 4px 12px;
-  }
-
-  .category-card {
-    padding: 12px 16px;
-  }
+  .VPHomeHero { min-height: 50vh; background-attachment: scroll; }
+  .VPHomeHero .name { font-size: 1.8em !important; letter-spacing: 0.1em; }
+  .VPHomeHero .text { font-size: 0.85em !important; letter-spacing: 0.3em; }
+  .VPHomeHero .tagline { font-size: 0.85em !important; }
+  .VPContent .VPDoc .content-container { padding: 16px; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; }
+  .VPHomeFeatures .VPFeature { padding: 24px 20px; }
+  .tag-item { font-size: 0.8em; padding: 3px 12px; }
+  .category-card { padding: 10px 16px; font-size: 0.85em; }
 }
 
 /* ==========================================
@@ -952,22 +907,13 @@ html {
 @media print {
   .VPNavBar::before,
   .VPHomeHero::before,
-  .VPHomeHero::after,
-  .dark::before {
-    display: none !important;
-  }
-
+  .dark::before { display: none !important; }
+  .VPHomeHero { background: none !important; min-height: auto; }
+  .VPHomeHero .name { color: #000 !important; text-shadow: none !important; }
   .VPContent .VPDoc .content-container {
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
   }
-
-  .VPContent .VPDoc .content-container::before {
-    display: none;
-  }
-
-  @page {
-    margin: 1.5cm;
-  }
+  .VPContent .VPDoc .content-container::before { display: none; }
 }
