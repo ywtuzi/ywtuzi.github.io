@@ -1,0 +1,612 @@
+/* ========================================
+   凡人修仙传 — 青墨修仙 Theme
+   Color Scheme: 墨蓝底 · 灵玉青 · 丹金黄 · 云白 · 仙气紫
+   ======================================== */
+
+:root {
+  /* ---- Core palette ---- */
+  --mortal-bg-dark: #0f1923;
+  --mortal-jade-green: #2d8a4e;
+  --mortal-gold: #c9a84c;
+  --mortal-cloud-white: #e8e4d9;
+  --mortal-purple: #8b5cf6;
+
+  /* ---- Semantic aliases ---- */
+  --vp-c-bg: var(--mortal-cloud-white);
+  --vp-c-bg-alt: #f5f2ea;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f0ede3;
+  --vp-c-text: #2c3e50;
+  --vp-c-text-1: #1a2a3a;
+  --vp-c-text-2: #5a6a7a;
+  --vp-c-brand: var(--mortal-jade-green);
+  --vp-c-brand-light: #3aa85e;
+  --vp-c-brand-lighter: #4dc870;
+  --vp-c-brand-dark: #22703e;
+  --vp-c-brand-darker: #1a5a30;
+  --vp-c-tip-bg: var(--mortal-jade-green);
+  --vp-c-warning-bg: var(--mortal-gold);
+  --vp-c-danger-bg: #c0392b;
+  --vp-code-bg: #1e2a36;
+  --vp-code-color: #e8e4d9;
+  --vp-code-block-bg: #0f1923;
+  --vp-blockquote-bg: rgba(45, 138, 78, 0.08);
+  --vp-c-divider: rgba(201, 168, 76, 0.25);
+
+  /* ---- Typography ---- */
+  --vp-font-family-base: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* ==========================================
+   Dark theme overrides
+   ========================================== */
+.dark {
+  --vp-c-bg: var(--mortal-bg-dark);
+  --vp-c-bg-alt: #111d29;
+  --vp-c-bg-elv: #162230;
+  --vp-c-bg-soft: #0f1923;
+  --vp-c-text: #d0ccc0;
+  --vp-c-text-1: var(--mortal-cloud-white);
+  --vp-c-text-2: #9a968a;
+  --vp-c-divider: rgba(201, 168, 76, 0.15);
+  --vp-c-brand: var(--mortal-jade-green);
+  --vp-c-brand-light: #3aa85e;
+  --vp-c-brand-lighter: #4dc870;
+  --vp-c-brand-dark: #22703e;
+  --vp-c-brand-darker: #1a5a30;
+  --vp-code-bg: #1a2533;
+  --vp-code-block-bg: #0a121c;
+  --vp-blockquote-bg: rgba(45, 138, 78, 0.12);
+}
+
+/* ==========================================
+   Selection color
+   ========================================== */
+::selection {
+  background: rgba(45, 138, 78, 0.3);
+  color: var(--mortal-cloud-white);
+}
+
+.dark ::selection {
+  background: rgba(45, 138, 78, 0.45);
+}
+
+/* ==========================================
+   Scrollbar
+   ========================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 138, 78, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 138, 78, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ==========================================
+   Seal effect on site title
+   ========================================== */
+.VPNavBarTitle .title {
+  position: relative;
+  display: inline-block;
+  color: var(--mortal-jade-green) !important;
+  font-weight: 700;
+  text-shadow:
+    0 0 6px rgba(45, 138, 78, 0.3),
+    0 0 12px rgba(45, 138, 78, 0.15);
+  letter-spacing: 0.05em;
+}
+
+.VPNavBarTitle .title::after {
+  content: '';
+  position: absolute;
+  inset: -4px -8px;
+  border: 2px solid rgba(201, 168, 76, 0.5);
+  border-radius: 4px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ==========================================
+   Navigation bar —  flying sword decoration
+   ========================================== */
+.VPNavBar {
+  background: linear-gradient(180deg, var(--mortal-bg-dark) 0%, rgba(15, 25, 35, 0.95) 100%) !important;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.VPNavBar::before {
+  content: '🗡️';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  font-size: 18px;
+  animation: swordFloat 3s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 10;
+}
+
+@keyframes swordFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(-5deg);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-4px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2px) rotate(5deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-6px) rotate(0deg);
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================
+   Home hero — mountain SVG background
+   ========================================== */
+.VPHomeHero {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHomeHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 40%, rgba(15, 25, 35, 0.06) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232d8a4e' opacity='0.08' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,213.3C672,224,768,192,864,165.3C960,139,1056,117,1152,122.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E") no-repeat bottom / contain;
+  pointer-events: none;
+}
+
+.VPHomeHero::after {
+  content: '⛰️';
+  position: absolute;
+  right: 10%;
+  bottom: 20px;
+  font-size: 48px;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: mountainFloat 6s ease-in-out infinite;
+}
+
+@keyframes mountainFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ==========================================
+   Article cards with hover effects
+   ========================================== */
+.VPContent .VPDoc {
+  background: transparent;
+}
+
+.VPContent .VPDoc .content-container {
+  background: var(--vp-c-bg-elv);
+  border-radius: 12px;
+  padding: 24px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.VPContent .VPDoc .content-container:hover {
+  box-shadow: 0 4px 24px rgba(45, 138, 78, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   Links
+   ========================================== */
+a {
+  color: var(--mortal-jade-green);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--mortal-gold);
+  text-decoration: underline;
+}
+
+/* ==========================================
+   Headings
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--vp-c-text-1);
+}
+
+h1 {
+  border-bottom: 2px solid var(--mortal-gold);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  border-left: 4px solid var(--mortal-jade-green);
+  padding-left: 12px;
+}
+
+h2 .header-anchor {
+  color: var(--mortal-gold);
+}
+
+/* ==========================================
+   Blockquote — lotus decoration + green left border
+   ========================================== */
+blockquote {
+  position: relative;
+  border-left: 4px solid var(--mortal-jade-green);
+  background: var(--vp-blockquote-bg);
+  margin: 16px 0;
+  padding: 16px 20px 16px 40px;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--vp-c-text-2);
+}
+
+blockquote::before {
+  content: '🪷';
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* ==========================================
+   Lotus divider for horizontal rules
+   ========================================== */
+hr {
+  position: relative;
+  border: none;
+  height: 24px;
+  margin: 32px 0;
+  text-align: center;
+}
+
+hr::after {
+  content: '🪷 🗡️ 🪷';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  letter-spacing: 12px;
+  opacity: 0.4;
+  background: transparent;
+}
+
+.dark hr::after {
+  opacity: 0.25;
+}
+
+/* ==========================================
+   Code blocks — dark style
+   ========================================== */
+.vp-code-group .tabs label {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.vp-code-group .tabs label.active {
+  border-bottom-color: var(--mortal-jade-green);
+  color: var(--mortal-jade-green);
+}
+
+div[class*='language-'] {
+  background: var(--vp-code-block-bg) !important;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 8px;
+}
+
+div[class*='language-']::before {
+  color: var(--mortal-gold) !important;
+  opacity: 0.7;
+}
+
+code {
+  color: var(--mortal-cloud-white);
+  background: var(--vp-code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* Code block header line numbers */
+.line-numbers-wrapper {
+  border-right: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+/* Highlighted lines */
+.highlighted-word {
+  background: rgba(45, 138, 78, 0.15);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+/* ==========================================
+   Featured badge
+   ========================================== */
+.featured-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--mortal-jade-green), var(--mortal-purple));
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(45, 138, 78, 0.3);
+}
+
+.dark .featured-badge {
+  box-shadow: 0 2px 8px rgba(45, 138, 78, 0.2);
+}
+
+/* ==========================================
+   Tag cloud
+   ========================================== */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--mortal-gold);
+  border-radius: 16px;
+  font-size: 0.85em;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.tag-item:hover {
+  background: var(--mortal-gold);
+  color: var(--mortal-bg-dark);
+  border-color: var(--mortal-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+}
+
+/* ==========================================
+   Category card
+   ========================================== */
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 1px solid rgba(45, 138, 78, 0.2);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  border-color: var(--mortal-jade-green);
+  box-shadow: 0 4px 16px rgba(45, 138, 78, 0.15);
+  transform: translateY(-3px);
+}
+
+.category-card .category-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.category-card .category-name {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.category-card .category-count {
+  font-size: 0.85em;
+  color: var(--vp-c-text-2);
+  margin-left: auto;
+}
+
+/* ==========================================
+   Table styling
+   ========================================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+
+thead {
+  background: var(--mortal-bg-dark);
+  color: var(--mortal-cloud-white);
+}
+
+th {
+  padding: 12px 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--mortal-gold);
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  color: var(--vp-c-text);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(45, 138, 78, 0.06);
+}
+
+.dark thead {
+  background: #0a121c;
+}
+
+/* ==========================================
+   Custom block (tip / warning / danger)
+   ========================================== */
+.custom-block {
+  border-radius: 8px;
+  border-left: 4px solid var(--mortal-jade-green);
+}
+
+.custom-block.tip {
+  background: rgba(45, 138, 78, 0.08);
+  border-color: var(--mortal-jade-green);
+}
+
+.custom-block.warning {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--mortal-gold);
+}
+
+.custom-block.danger {
+  background: rgba(192, 57, 43, 0.08);
+  border-color: #c0392b;
+}
+
+/* ==========================================
+   Info / note callout
+   ========================================== */
+.custom-block.info {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: var(--mortal-purple);
+}
+
+/* ==========================================
+   Footer with reverse mountain SVG
+   ========================================== */
+.VPFooter {
+  position: relative;
+  background: var(--mortal-bg-dark) !important;
+  color: var(--mortal-cloud-white) !important;
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.VPFooter::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%230f1923' d='M0,0L48,5.3C96,10.7,192,21.3,288,26.7C384,32,480,32,576,26.7C672,21.3,768,10.7,864,8C960,5.3,1056,10.7,1152,16C1248,21.3,1344,26.7,1392,29.3L1440,32L1440,60L1392,60C1344,60,1248,60,1152,60C1056,60,960,60,864,60C768,60,672,60,576,60C480,60,384,60,288,60C192,60,96,60,48,60L0,60Z'/%3E%3C/svg%3E") no-repeat top / contain;
+  pointer-events: none;
+}
+
+.VPFooter .footer-message a {
+  color: var(--mortal-gold) !important;
+}
+
+.VPFooter .footer-message a:hover {
+  color: var(--mortal-cloud-white) !important;
+}
+
+/* ==========================================
+   VPNavBarTitle extra polish
+   ========================================== */
+.VPNavBarTitle {
+  font-family: var(--vp-font-family-base);
+}
+
+/* ==========================================
+   Sidebar
+   ========================================== */
+.VPSidebar {
+  background: var(--vp-c-bg-alt) !important;
+}
+
+.VPSidebarItem .item .link {
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.VPSidebarItem .item .link:hover {
+  background: rgba(45, 138, 78, 0.08);
+}
+
+.VPSidebarItem.is-active .link {
+  background: rgba(45, 138, 78, 0.12) !important;
+  border-right: 3px solid var(--mortal-jade-green);
+}
+
+/* ==========================================
+   Home feature cards
+   ========================================== */
+.VPHomeFeatures .VPFeature {
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 12px;
+  background: var(--vp-c-bg-elv);
+  transition: all 0.3s ease;
+}
+
+.VPHomeFeatures .VPFeature:hover {
+  border-color: var(--mortal-jade-green);
+  box-shadow: 0 6px 20px rgba(45, 138, 78, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ==========================================
+   Image styling
+   ========================================== */
+img {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   Slogan / subtitle in hero
+   ========================================== */
+.VPHomeHero .tagline {
+  color: var(--mortal-gold) !important;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================
+   Miscellaneous
+   ========================================== */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle transition on all interactive elements */
+a, button, .VPNavBar, .VPSidebar, .VPContent {
+  transition: background 0.3s ease, color 0.3s ease;
+}
