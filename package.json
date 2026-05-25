@@ -1,6 +1,6 @@
 {
-  "name": "mortal-cultivation-blog",
-  "version": "1.0.0",
+  "name": "ai-learning-blog",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
