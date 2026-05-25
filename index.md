@@ -24,16 +24,17 @@ hero:
 
 <article class="featured-article">
   <div class="featured-article-body" style="padding-top: 48px;">
-    <div class="featured-article-meta">2026.05.25 · 随笔</div>
+    <div class="featured-article-meta">2026.05.25 · 技术</div>
     <h2 class="featured-article-title">
-      <a href="/posts/fanren-reflection">凡人修仙传感悟 — 以凡人之躯，行逆天之事</a>
+      <a href="/posts/hello-world">Claude Code CLI + cc-switch + DeepSeek V4 Flash + VS Code 开发实战心得</a>
     </h2>
     <p class="featured-article-excerpt">
-      为什么一个"伪灵根"的修仙故事，能引发如此多的共鸣？修仙九境与编程之道的对应，动漫改编的匠心，以及何为"修仙"的真正含义。
+      一套让我彻底放下鼠标的 AI 辅助开发方案。Claude Code CLI 做主力编码、cc-switch 管理模型切换、DeepSeek V4 Flash 做快速备选、VS Code 做传统编辑兜底——四者结合，各司其职。
     </p>
     <div class="featured-article-tags">
-      <span>凡人修仙传</span>
-      <span>感悟</span>
+      <span>Claude Code</span>
+      <span>DeepSeek</span>
+      <span>工具链</span>
     </div>
   </div>
 </article>
