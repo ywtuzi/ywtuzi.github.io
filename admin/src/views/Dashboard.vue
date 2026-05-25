@@ -6,6 +6,7 @@ const stats = ref({ total: 0, loading: true })
 const tokenValid = ref(false)
 const error = ref('')
 const recentPosts = ref([])
+const hasToken = ref(!!localStorage.getItem('github_token'))
 
 onMounted(async () => {
   const token = localStorage.getItem('github_token')
@@ -38,7 +39,7 @@ onMounted(async () => {
     <p style="color:#666;margin-bottom:32px;font-size:0.85em;">AI学习记录 · 后台管理</p>
 
     <!-- 未配置 Token -->
-    <div v-if="!localStorage.getItem('github_token')"
+    <div v-if="!hasToken"
       style="background:#c9a84c;color:#1a1a1a;padding:16px 20px;margin-bottom:24px;font-size:0.9em;">
       ⚠️ 请先在左侧「设置」页面配置 GitHub Token
     </div>
