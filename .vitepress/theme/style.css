@@ -26,7 +26,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  background: var(--ink-black);
+  background: transparent;
   color: var(--parchment);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  background: var(--ink-black);
+  background: transparent;
   color: var(--parchment);
   line-height: 1.7;
   overflow-x: hidden;
@@ -61,7 +61,7 @@ body {
 
 /* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--ink-black); }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--ink-light); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
 
@@ -140,7 +140,7 @@ a:hover { color: var(--vermillion); }
   font-family: var(--font-body) !important;
   font-size: 0.82em !important;
   font-weight: 400;
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
   letter-spacing: 0.08em;
   padding: 8px 16px !important;
   position: relative;
@@ -174,7 +174,7 @@ a:hover { color: var(--vermillion); }
 
 /* Social icon */
 .VPNavBarSocialLinks .icon {
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
   opacity: 0.5;
   transition: opacity 0.3s;
 }
@@ -187,6 +187,7 @@ a:hover { color: var(--vermillion); }
    HERO — Full-screen video + minimal title
    ============================================================ */
 .VPHomeHero {
+  scroll-snap-align: start;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -194,7 +195,7 @@ a:hover { color: var(--vermillion); }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--ink-black);
+  background: transparent;
 }
 
 /* Hero content — centered, minimal */
@@ -220,7 +221,7 @@ a:hover { color: var(--vermillion); }
 
 .VPHomeHero .text {
   font-family: var(--font-body) !important;
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
   font-size: 0.9em !important;
   font-weight: 300;
   letter-spacing: 0.15em;
@@ -276,7 +277,7 @@ a:hover { color: var(--vermillion); }
 
 .VPHomeHero .actions .action .item.alt {
   background: transparent !important;
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
   border: 1px solid rgba(200,180,140,0.15);
 }
 
@@ -317,6 +318,9 @@ a:hover { color: var(--vermillion); }
    CONTENT AREA — Dark editorial
    ============================================================ */
 .VPContent {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
   min-height: 100vh;
 }
 
@@ -342,6 +346,11 @@ a:hover { color: var(--vermillion); }
    HOMEPAGE CUSTOM SECTIONS
    ============================================================ */
 .home-content {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 960px;
   margin: 0 auto;
   padding: 80px 32px;
@@ -499,8 +508,9 @@ a:hover { color: var(--vermillion); }
    FOOTER
    ============================================================ */
 .VPFooter {
+  scroll-snap-align: start;
   background: var(--ink-black) !important;
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
   border-top: 1px solid rgba(200,180,140,0.04) !important;
   padding: 48px 0 32px;
   margin-top: 0;
@@ -527,7 +537,7 @@ a:hover { color: var(--vermillion); }
   border-radius: 0;
   transition: all 0.3s;
   padding: 8px 16px !important;
-  color: var(--parchment-dim) !important;
+  color: #ffffff !important;
 }
 
 .VPSidebarItem .item .link:hover {
