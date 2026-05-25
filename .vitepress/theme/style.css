@@ -26,6 +26,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
+  scroll-snap-type: y proximity;
   background: transparent;
   color: var(--parchment);
   font-family: var(--font-body);
@@ -318,14 +319,10 @@ a:hover { color: var(--vermillion); }
    CONTENT AREA — Dark editorial
    ============================================================ */
 .VPContent {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-  min-height: 100vh;
 }
 
 .VPContent .VPDoc .content-container {
-  background: var(--ink-dark);
+  background: transparent;
   border: none;
   border-radius: 0;
   padding: 48px 56px;

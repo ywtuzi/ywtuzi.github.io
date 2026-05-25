@@ -15,6 +15,7 @@ export default defineConfig({
     siteTitle: 'AI学习记录',
     nav: [
       { text: '首页', link: '/' },
+      { text: 'AI发展史', link: '/ai-history/' },
       { text: '文章', link: '/posts/' },
       { text: '分类', link: '/categories/' },
       { text: '标签', link: '/tags/' },
