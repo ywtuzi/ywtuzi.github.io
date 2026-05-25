@@ -7,7 +7,7 @@ function apiUrl(path) {
   const parts = [GITHUB_API, 'repos', OWNER, REPO, 'contents']
   if (BLOG_PATH) parts.push(BLOG_PATH)
   parts.push(path)
-  return parts.join('/')
+  return parts.filter(Boolean).join('/')
 }
 
 function getToken() {
