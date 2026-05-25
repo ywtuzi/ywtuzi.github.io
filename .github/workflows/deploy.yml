@@ -36,7 +36,7 @@ jobs:
       - name: Build admin panel
         run: |
           cd admin && npm ci && npm run build && cd ..
-          mkdir -p public/admin
+          rm -rf public/admin && mkdir -p public/admin
           cp -r admin/dist/* public/admin/
       - run: npm ci
       - run: npm run build
