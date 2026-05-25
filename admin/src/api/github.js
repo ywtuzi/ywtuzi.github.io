@@ -34,7 +34,7 @@ export async function getFile(path) {
   if (!res.ok) throw new Error(`获取文件失败: ${res.status}`)
   const data = await res.json()
   return {
-    content: atob(data.content.replace(/\n/g, '')),
+    content: decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))),
     sha: data.sha,
     path: data.path,
   }
