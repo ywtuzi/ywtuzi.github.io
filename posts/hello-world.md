@@ -16,7 +16,7 @@ description: 凡人修仙，逆天而行。纵使伪灵根资质，凭借掌天�
 
 ![云海](https://cdn.jsdelivr.net/gh/ywtuzi/img@master/misty-peaks.jpg "云海")
 
-这是 **青墨修仙录** 的开篇之作。
+这是 **AI学习记录** 的开篇之作。
 
 ## 修仙九境：编程之道
 

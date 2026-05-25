@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   base: '/',
-  title: '青墨修仙录',
-  description: '个人博客 - 技术分享与人生感悟',
+  title: 'AI学习记录',
+  description: 'AI学习记录 - 技术探索与成长',
   lang: 'zh-CN',
   lastUpdated: true,
   cleanUrls: true,
@@ -12,7 +12,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/images/seal-logo.png',
-    siteTitle: '青墨修仙录',
+    siteTitle: 'AI学习记录',
     nav: [
       { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
@@ -26,7 +26,7 @@ export default defineConfig({
     ],
     footer: {
       message: '凡人修仙 · 以代码证道',
-      copyright: '青墨修仙录 <span style="font-size:0.65em;opacity:0.4"> — ywtuzi</span>',
+      copyright: 'AI学习记录 <span style="font-size:0.65em;opacity:0.4">/ ywtuzi</span>',
     },
     editLink: { pattern: '', text: '' },
   },

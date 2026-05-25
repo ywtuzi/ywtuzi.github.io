@@ -1,11 +1,11 @@
 ---
 layout: home
-title: 青墨修仙录
-titleTemplate: 以凡人之躯，行代码之道
+title: AI学习记录
+titleTemplate: 探索AI · 记录成长
 
 hero:
-  name: 青墨修仙录
-  text: 以凡人之躯 · 行代码之道
+  name: AI学习记录
+  text: 探索人工智能 · 记录学习之路
   actions:
     - theme: brand
       text: 浏览文章
