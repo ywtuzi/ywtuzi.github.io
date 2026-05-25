@@ -23,10 +23,7 @@ hero:
 </div>
 
 <article class="featured-article">
-  <div class="featured-article-image">
-    <img src="https://cdn.jsdelivr.net/gh/ywtuzi/img@master/misty-peaks.jpg" alt="云海">
-  </div>
-  <div class="featured-article-body">
+  <div class="featured-article-body" style="padding-top: 48px;">
     <div class="featured-article-meta">2026.05.25 · 随笔</div>
     <h2 class="featured-article-title">
       <a href="/posts/fanren-reflection">凡人修仙传感悟 — 以凡人之躯，行逆天之事</a>

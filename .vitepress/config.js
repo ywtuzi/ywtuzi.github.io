@@ -26,7 +26,8 @@ export default defineConfig({
     ],
     footer: {
       message: '凡人修仙 · 以代码证道',
-      copyright: 'Copyright © 2026 ywtuzi',
+      copyright: '青墨修仙录 <span style="font-size:0.65em;opacity:0.4"> — ywtuzi</span>',
     },
+    editLink: { pattern: '', text: '' },
   },
 })
