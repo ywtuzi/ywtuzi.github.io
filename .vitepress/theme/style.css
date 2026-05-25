@@ -203,17 +203,17 @@ a:hover { color: var(--vermillion); }
   z-index: 3;
   text-align: center;
   padding: 0 24px;
-  max-width: 800px;
+  max-width: 800px; margin: 0 auto; width: 100%;
 }
 
 .VPHomeHero .name {
   font-family: var(--font-display) !important;
   color: var(--parchment) !important;
-  font-size: 4em !important;
+  font-size: 2.8em !important;
   font-weight: 300;
   letter-spacing: 0.15em;
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin: 0 auto 16px !important; text-align: center; display: block; width: 100%;
   text-shadow: 0 0 60px rgba(0,0,0,0.8);
   white-space: nowrap;
 }
@@ -221,11 +221,11 @@ a:hover { color: var(--vermillion); }
 .VPHomeHero .text {
   font-family: var(--font-body) !important;
   color: var(--parchment-dim) !important;
-  font-size: 0.95em !important;
+  font-size: 0.9em !important;
   font-weight: 300;
   letter-spacing: 0.15em;
   opacity: 0.6;
-  margin-bottom: 40px;
+  margin: 0 auto 40px !important; text-align: center;
 }
 
 .VPHomeHero .tagline {
@@ -357,7 +357,7 @@ a:hover { color: var(--vermillion); }
   text-transform: uppercase;
   color: var(--vermillion);
   opacity: 0.6;
-  margin-bottom: 16px;
+  margin: 0 auto 16px !important; text-align: center; display: block; width: 100%;
   border: 1px solid rgba(192,59,59,0.2);
   padding: 4px 16px;
 }
@@ -423,7 +423,7 @@ a:hover { color: var(--vermillion); }
   font-weight: 300;
   letter-spacing: 0.06em;
   line-height: 1.4;
-  margin-bottom: 16px;
+  margin: 0 auto 16px !important; text-align: center; display: block; width: 100%;
   color: var(--parchment);
 }
 
